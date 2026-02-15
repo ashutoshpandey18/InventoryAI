@@ -60,7 +60,7 @@ Only commit `.env.example`. Do not commit `.env`, `.env.local`, or any real cred
 
 ```text
 app/
-  (dashboard)/
+  dashboard/
     layout.tsx
     page.tsx
   layout.tsx

@@ -18,9 +18,8 @@ export default function DashboardPage() {
         <p className="text-slate-600">Inventory intelligence overview</p>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {dashboardStats.map((stat, i) => {
+        {dashboardStats.map((stat) => {
           const Icon = iconMap[stat.icon as keyof typeof iconMap]
           return (
             <div
@@ -50,7 +49,6 @@ export default function DashboardPage() {
         })}
       </div>
 
-      {/* Reorder Alerts Table */}
       <div className="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
         <div className="p-6 border-b border-slate-200">
           <h2 className="text-lg font-semibold text-slate-900 mb-1">Reorder Alerts</h2>
@@ -112,7 +110,6 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Chart Section */}
       <div className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
         <div className="mb-6">
           <h2 className="text-lg font-semibold text-slate-900 mb-1">Forecast Accuracy Trend</h2>
@@ -120,7 +117,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="flex items-end justify-between h-48 gap-4">
-          {dashboardChartData.map((item, i) => (
+          {dashboardChartData.map((item) => (
             <div key={item.month} className="flex-1 flex flex-col items-center gap-2">
               <div
                 className="w-full bg-indigo-600 rounded-t"
