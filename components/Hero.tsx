@@ -5,61 +5,139 @@ import { heroPreviewItems } from '@/lib/mock-data'
 
 export function Hero() {
   return (
-    <section className="py-24 bg-slate-50">
-      <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto px-6">
-        <div className="space-y-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-slate-900">
-            Know what to reorder <span className="text-indigo-600">before you run out.</span>
-          </h1>
-          <p className="text-lg text-slate-600 leading-relaxed">
-            Automated inventory tracking predicts stockouts and calculates reorder quantities using your sales data.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button variant="primary" size="lg">
-              Start Free Trial
-            </Button>
-            <Button variant="secondary" size="lg">
-              See How It Works
-            </Button>
-          </div>
-        </div>
+    <section className="relative overflow-hidden">
+      {/* Subtle radial gradient backgrounds — YC depth feel */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-slate-100/60 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4 pointer-events-none" />
 
-        <div>
-          <div className="rounded-xl border border-slate-200 bg-white shadow-lg p-1">
-            <div className="rounded-lg bg-slate-50 p-6 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">
-                    Reorder Alert
-                  </div>
-                  <div className="text-2xl font-bold text-slate-900">{heroPreviewItems.length} Items</div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-10 py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left — Copy */}
+          <div className="space-y-8">
+            <h1 className="text-5xl lg:text-6xl font-semibold leading-[1.1] tracking-tight text-slate-900">
+              Know what to reorder{' '}
+              <span className="text-indigo-600">before you run out.</span>
+            </h1>
+            <p className="text-lg text-slate-500 leading-relaxed max-w-lg">
+              Automated inventory tracking predicts stockouts and calculates reorder quantities using your sales data.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Button variant="primary" size="lg">
+                Start Free Trial
+              </Button>
+              <Button variant="secondary" size="lg">
+                See How It Works
+              </Button>
+            </div>
+
+            {/* Trust / proof strip */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2">
+              <span className="text-sm text-slate-400">Used by early retail stores</span>
+              <span className="text-slate-300">·</span>
+              <span className="text-sm text-slate-400">Voice-first inventory workflows</span>
+              <span className="text-slate-300">·</span>
+              <span className="text-sm text-slate-400">Predictive reorder engine</span>
+            </div>
+          </div>
+
+          {/* Right — Product Preview Panel */}
+          <div className="relative">
+            <div className="transform rotate-0 scale-100 lg:rotate-[-2deg] lg:scale-[1.02] rounded-2xl border border-slate-200/80 bg-white shadow-xl shadow-black/10 overflow-hidden">
+              {/* Window chrome bar */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-100 bg-slate-50/80">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-amber-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
-                <div className="h-12 w-12 rounded-lg bg-indigo-600 flex items-center justify-center">
-                  <div className="h-5 w-5 rounded-sm bg-white/30" />
-                </div>
+                <span className="text-xs font-medium text-slate-400 ml-2">InventoryAI — Dashboard</span>
               </div>
 
-              <div className="space-y-2">
-                {heroPreviewItems.map((item) => (
-                  <div
-                    key={item.name}
-                    className="flex items-center justify-between p-3 rounded-md bg-white border border-slate-200"
-                  >
+              <div className="p-6 space-y-5">
+                {/* Metric chips row */}
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="rounded-lg bg-slate-50 p-3">
+                    <div className="text-xs text-slate-400 mb-1">Total SKUs</div>
+                    <div className="text-lg font-semibold text-slate-900">1,284</div>
+                  </div>
+                  <div className="rounded-lg bg-slate-50 p-3">
+                    <div className="text-xs text-slate-400 mb-1">At Risk</div>
+                    <div className="text-lg font-semibold text-red-600">12</div>
+                  </div>
+                  <div className="rounded-lg bg-indigo-50 p-3">
+                    <div className="text-xs text-slate-400 mb-1">Fill Rate</div>
+                    <div className="text-lg font-semibold text-indigo-600">97.3%</div>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="border-t border-slate-100" />
+
+                {/* Mini table — reorder alerts */}
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Reorder Alerts</span>
+                    <span className="text-xs text-slate-400">{heroPreviewItems.length} items</span>
+                  </div>
+                  <div className="space-y-2">
+                    {heroPreviewItems.map((item) => (
+                      <div
+                        key={item.name}
+                        className="flex items-center justify-between py-2.5 px-3 rounded-lg bg-slate-50/70 border border-slate-100"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <div className="text-sm font-medium text-slate-800 truncate">{item.name}</div>
+                          <div className="text-xs text-slate-400 mt-0.5">
+                            {item.stock} units left · {item.runout}d until stockout
+                          </div>
+                        </div>
+                        <span className="ml-4 text-sm font-semibold text-indigo-600 shrink-0">
+                          +{item.qty}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="border-t border-slate-100" />
+
+                {/* Progress bars — forecast accuracy */}
+                <div>
+                  <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-3">Forecast Accuracy</div>
+                  <div className="space-y-2.5">
                     <div>
-                      <div className="text-sm font-medium text-slate-900">{item.name}</div>
-                      <div className="text-xs text-slate-500">
-                        Stock: {item.stock} units • Runout: {item.runout}d
+                      <div className="flex justify-between text-xs mb-1">
+                        <span className="text-slate-500">Almond Milk</span>
+                        <span className="text-slate-700 font-medium">94%</span>
+                      </div>
+                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-full w-[94%] bg-indigo-600 rounded-full" />
                       </div>
                     </div>
-                    <div className="text-sm font-semibold text-indigo-600">
-                      +{item.qty}
+                    <div>
+                      <div className="flex justify-between text-xs mb-1">
+                        <span className="text-slate-500">Wheat Bread</span>
+                        <span className="text-slate-700 font-medium">89%</span>
+                      </div>
+                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-full w-[89%] bg-indigo-500 rounded-full" />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex justify-between text-xs mb-1">
+                        <span className="text-slate-500">Greek Yogurt</span>
+                        <span className="text-slate-700 font-medium">91%</span>
+                      </div>
+                      <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="h-full w-[91%] bg-indigo-500 rounded-full" />
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
 
-              <div className="pt-4 border-t border-slate-200">
-                <div className="text-xs text-slate-500 text-center">
+                {/* Footer label */}
+                <div className="text-xs text-slate-400 text-center pt-1">
                   Based on 90-day sales velocity
                 </div>
               </div>

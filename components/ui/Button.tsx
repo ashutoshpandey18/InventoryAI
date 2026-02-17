@@ -18,21 +18,21 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
+      'inline-flex items-center justify-center font-medium transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none'
 
     const variants = {
       primary:
-        'bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm hover:shadow-md',
+        'bg-indigo-600 hover:bg-indigo-700 text-white shadow-md hover:shadow-lg hover:-translate-y-px',
       secondary:
-        'bg-transparent text-slate-700 border-2 border-slate-300 hover:border-indigo-400 hover:text-indigo-700 hover:bg-indigo-50/50',
+        'bg-white text-slate-700 border border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-sm hover:shadow',
       ghost:
-        'text-slate-600 hover:text-slate-900 hover:bg-slate-100',
+        'text-slate-600 hover:text-slate-900 hover:bg-slate-50',
     }
 
     const sizes = {
-      sm: 'h-8 px-3 text-sm rounded-md',
-      md: 'h-10 px-4 text-sm rounded-md',
-      lg: 'h-12 px-6 text-base rounded-lg',
+      sm: 'h-9 px-4 text-sm rounded-lg',
+      md: 'h-10 px-5 text-sm rounded-xl',
+      lg: 'h-12 px-6 text-base rounded-xl',
     }
 
     return (

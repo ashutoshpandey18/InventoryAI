@@ -14,10 +14,10 @@ interface SalesVelocityChartProps {
 
 export function SalesVelocityChart({ data }: SalesVelocityChartProps) {
   return (
-    <div className="bg-white rounded-lg border border-slate-200 shadow-sm p-6">
+    <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02] p-6">
       <div className="mb-6">
-        <h3 className="text-lg font-semibold text-slate-900 mb-1">Sales Velocity</h3>
-        <p className="text-sm text-slate-500">6-month trend analysis</p>
+        <h3 className="text-base font-semibold text-slate-900 mb-1">Sales Velocity</h3>
+        <p className="text-sm text-slate-400">6-month trend analysis</p>
       </div>
 
       <div className="w-full h-[300px]">
@@ -106,14 +106,14 @@ export function SalesVelocityChart({ data }: SalesVelocityChartProps) {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-slate-200">
+      <div className="flex items-center justify-center gap-6 mt-4 pt-4 border-t border-slate-100">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-indigo-600" />
-          <span className="text-sm text-slate-600 font-medium">Actual Sales</span>
+          <span className="text-sm text-slate-500">Actual Sales</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-0.5 bg-slate-400" style={{ width: '16px' }} />
-          <span className="text-sm text-slate-600 font-medium">Forecast</span>
+          <span className="text-sm text-slate-500">Forecast</span>
         </div>
       </div>
     </div>

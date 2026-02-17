@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { Button } from './ui/Button'
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -38,70 +37,72 @@ export function StickyNav() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-white/80 backdrop-blur-md shadow-sm py-3'
-          : 'bg-white/60 backdrop-blur-sm py-4'
-      } border-b border-slate-200`}
+          ? 'bg-white/90 backdrop-blur-md shadow-sm'
+          : 'bg-white/70 backdrop-blur-sm'
+      } border-b border-slate-200/60`}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <a
             href="/"
-            className="text-xl font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-2 py-1 -ml-2"
+            className="text-base font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-1 py-0.5"
           >
             Inventory<span className="text-indigo-600">AI</span>
           </a>
 
-          {/* Navigation Links - Desktop */}
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Navigation Links — Desktop */}
+          <nav className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="relative text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-2 py-1 group"
+                className="relative text-sm text-slate-500 hover:text-slate-900 transition-colors duration-150 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-600 group-hover:w-full transition-all duration-200" />
               </a>
             ))}
           </nav>
 
-          {/* CTA Buttons - Desktop */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* CTA — Desktop */}
+          <div className="hidden md:flex items-center gap-4">
             <a
               href="#signin"
-              className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-3 py-2"
+              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-2 py-1"
             >
               Sign In
             </a>
-            <Button variant="primary" size="sm">
+            <a
+              href="#trial"
+              className="inline-flex items-center justify-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-4 py-2 shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            >
               Start Free Trial
-            </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md"
+            className="md:hidden p-2 text-slate-500 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-5 w-5" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 space-y-3 border-t border-slate-200 pt-4">
+          <nav className="md:hidden pb-4 space-y-1 border-t border-slate-100 pt-3">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200 py-2"
+                className="block text-sm text-slate-600 hover:text-slate-900 transition-colors duration-150 py-2 px-1"
               >
                 {link.label}
               </a>
@@ -109,14 +110,17 @@ export function StickyNav() {
             <a
               href="#signin"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200 py-2"
+              className="block text-sm text-slate-600 hover:text-slate-900 transition-colors duration-150 py-2 px-1"
             >
               Sign In
             </a>
             <div className="pt-2">
-              <Button variant="primary" size="sm" className="w-full">
+              <a
+                href="#trial"
+                className="block text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-4 py-2.5 shadow-sm transition-colors duration-150"
+              >
                 Start Free Trial
-              </Button>
+              </a>
             </div>
           </nav>
         )}

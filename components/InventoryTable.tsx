@@ -63,29 +63,29 @@ export function InventoryTable() {
 
   const getPriorityBadge = (priority: string) => {
     const styles = {
-      critical: 'bg-slate-200 text-slate-800 border-slate-300',
-      high: 'bg-slate-100 text-slate-700 border-slate-200',
-      medium: 'bg-slate-50 text-slate-600 border-slate-200',
+      critical: 'bg-red-50 text-red-600 border-red-100',
+      high: 'bg-amber-50 text-amber-600 border-amber-100',
+      medium: 'bg-slate-50 text-slate-500 border-slate-100',
     }
     return styles[priority as keyof typeof styles] || styles.medium
   }
 
   return (
-    <div className="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
-      <div className="p-6 border-b border-slate-200">
-        <h2 className="text-xl font-semibold text-slate-900 mb-1">
+    <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02] overflow-hidden">
+      <div className="px-6 py-5 border-b border-slate-100">
+        <h2 className="text-base font-semibold text-slate-900 mb-1">
           Low Stock & Reorder Suggestions
         </h2>
-        <p className="text-sm text-slate-500">
-          Automated inventory recommendations based on sales velocity and demand patterns
+        <p className="text-sm text-slate-400">
+          Automated recommendations based on sales velocity and demand patterns
         </p>
       </div>
 
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-slate-50 border-b border-slate-200">
+          <thead className="bg-slate-50/60 border-b border-slate-100">
             <tr>
-              <th className="text-left px-6 py-3.5 text-xs uppercase tracking-wide">
+              <th className="text-left px-6 py-3 text-xs uppercase tracking-wide">
                 <SortButton field="product" label="Product" />
               </th>
               <th className="text-left px-6 py-3.5 text-xs uppercase tracking-wide">
@@ -97,7 +97,7 @@ export function InventoryTable() {
               <th className="text-left px-6 py-3.5 text-xs uppercase tracking-wide">
                 <SortButton field="suggestedReorder" label="Suggested Reorder" />
               </th>
-              <th className="text-left px-6 py-3.5 text-xs uppercase tracking-wide font-medium text-slate-600">
+              <th className="text-left px-6 py-3 text-xs uppercase tracking-wide font-medium text-slate-500">
                 Reason
               </th>
             </tr>
@@ -156,8 +156,8 @@ export function InventoryTable() {
         </table>
       </div>
 
-      <div className="px-6 py-4 border-t border-slate-200 bg-slate-50/40">
-        <p className="text-xs text-slate-500">
+      <div className="px-6 py-3.5 border-t border-slate-100 bg-slate-50/40">
+        <p className="text-xs text-slate-400">
           Last updated: {formatDateTime()}
         </p>
       </div>
