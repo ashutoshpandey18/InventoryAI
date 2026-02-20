@@ -71,7 +71,7 @@ export function InventoryTable() {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02] overflow-hidden">
+    <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)] overflow-hidden">
       <div className="px-6 py-5 border-b border-slate-100">
         <h2 className="text-base font-semibold text-slate-900 mb-1">
           Low Stock & Reorder Suggestions

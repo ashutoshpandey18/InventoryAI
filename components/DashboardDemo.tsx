@@ -11,7 +11,7 @@ import { formatCurrency } from '@/lib/utils'
 
 export function DashboardDemo() {
   return (
-    <section className="py-20 bg-slate-50/50">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-14">
           <p className="text-sm font-medium text-indigo-600 mb-3">Dashboard</p>
@@ -25,7 +25,7 @@ export function DashboardDemo() {
 
         <div className="grid lg:grid-cols-2 gap-5">
           {/* Low Stock Risk List */}
-          <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02]">
+          <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)]">
             <div className="px-6 py-5 border-b border-slate-100 flex items-center gap-3">
               <div className="p-2 rounded-lg bg-slate-50 border border-slate-100">
                 <AlertTriangle className="h-4 w-4 text-slate-500" />
@@ -68,7 +68,7 @@ export function DashboardDemo() {
           </div>
 
           {/* Reorder Suggestions */}
-          <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02]">
+          <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)]">
             <div className="px-6 py-5 border-b border-slate-100 flex items-center gap-3">
               <div className="p-2 rounded-lg bg-indigo-50 border border-indigo-100/50">
                 <Package className="h-4 w-4 text-indigo-600" />
@@ -118,7 +118,7 @@ export function DashboardDemo() {
           </div>
 
           {/* Sales Velocity Chart */}
-          <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02]">
+          <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)]">
             <div className="px-6 py-5 border-b border-slate-100 flex items-center gap-3">
               <div className="p-2 rounded-lg bg-indigo-50 border border-indigo-100/50">
                 <TrendingUp className="h-4 w-4 text-indigo-600" />
@@ -171,7 +171,7 @@ export function DashboardDemo() {
           </div>
 
           {/* Recommendations */}
-          <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02]">
+          <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)]">
             <div className="px-6 py-5 border-b border-slate-100 flex items-center gap-3">
               <div className="p-2 rounded-lg bg-indigo-50 border border-indigo-100/50">
                 <Sparkles className="h-4 w-4 text-indigo-600" />

@@ -16,3 +16,21 @@
     letter-spacing: -0.025em;
   }
 }
+
+/* ─── Ambient luminous background animations ─── */
+@keyframes ambientFloat1 {
+  0%,  100% { transform: translate(0px,   0px)  scale(1);     }
+  33%        { transform: translate(28px, -18px) scale(1.015); }
+  66%        { transform: translate(-18px, 12px) scale(0.985); }
+}
+
+@keyframes ambientFloat2 {
+  0%,  100% { transform: translate(0px,   0px)   scale(1);    }
+  33%        { transform: translate(-22px, 16px)  scale(1.01); }
+  66%        { transform: translate(16px, -12px)  scale(0.99); }
+}
+
+@keyframes ambientFloat3 {
+  0%,  100% { transform: translate(0px,  0px)  scale(1);     }
+  50%        { transform: translate(12px, -20px) scale(1.015); }
+}

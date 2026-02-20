@@ -11,7 +11,7 @@ const problems = [
 
 export function ProblemGrid() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <p className="text-sm font-medium text-indigo-600 mb-3">The problem</p>
         <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-12 max-w-xl">
@@ -23,7 +23,7 @@ export function ProblemGrid() {
             return (
               <div
                 key={problem.text}
-                className="rounded-xl border border-slate-100 bg-slate-50/50 p-6 space-y-3"
+                className="bg-white rounded-xl border border-slate-100/80 p-6 space-y-3 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.04)]"
               >
                 <div className="p-2.5 rounded-lg bg-white border border-slate-100 w-fit">
                   <Icon className="h-4 w-4 text-slate-500" />

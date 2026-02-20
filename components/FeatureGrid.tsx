@@ -43,7 +43,7 @@ const features: Feature[] = [
 
 export function FeatureGrid() {
   return (
-    <section id="features" className="py-20 bg-slate-50/50">
+    <section id="features" className="py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-14">
           <p className="text-sm font-medium text-indigo-600 mb-3">Features</p>
@@ -61,7 +61,7 @@ export function FeatureGrid() {
             return (
               <div
                 key={feature.title}
-                className="bg-white rounded-xl border border-slate-100 p-7 hover:border-slate-200 transition-colors duration-150"
+                className="bg-white rounded-xl border border-slate-100/80 p-7 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.04)] hover:shadow-[0_4px_24px_-6px_rgba(0,0,0,0.07)] hover:border-slate-200/80 transition-all duration-200"
               >
                 <div className="mb-5">
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-slate-50 border border-slate-100">

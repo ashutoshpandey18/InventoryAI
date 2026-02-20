@@ -5,7 +5,7 @@ import { conversationData } from '@/lib/mock-data'
 
 export function AIAssistantPreview() {
   return (
-    <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02] overflow-hidden">
+    <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)] overflow-hidden">
       <div className="px-5 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50/60">
         <div className="p-2 rounded-lg bg-indigo-600">
           <Sparkles className="h-4 w-4 text-white" />

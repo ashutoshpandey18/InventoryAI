@@ -14,7 +14,7 @@ interface SalesVelocityChartProps {
 
 export function SalesVelocityChart({ data }: SalesVelocityChartProps) {
   return (
-    <div className="bg-white rounded-xl border border-slate-100 shadow-sm shadow-black/[0.02] p-6">
+    <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)] p-6">
       <div className="mb-6">
         <h3 className="text-base font-semibold text-slate-900 mb-1">Sales Velocity</h3>
         <p className="text-sm text-slate-400">6-month trend analysis</p>

@@ -5,7 +5,7 @@ import { manualWorkflow, predictiveWorkflow } from '@/lib/mock-data'
 
 export function WorkflowComparison() {
   return (
-    <section id="how-it-works" className="py-20 bg-white">
+    <section id="how-it-works" className="py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-14">
           <p className="text-sm font-medium text-indigo-600 mb-3">Comparison</p>
@@ -19,7 +19,7 @@ export function WorkflowComparison() {
 
         <div className="grid lg:grid-cols-2 gap-5">
           {/* Manual Workflow */}
-          <div className="bg-slate-50/70 rounded-xl border border-slate-100 p-7">
+          <div className="bg-white/70 rounded-xl border border-slate-100/80 p-7 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.04)]">
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 mb-2">
                 <div className="w-2 h-2 rounded-full bg-slate-400" />
@@ -59,7 +59,7 @@ export function WorkflowComparison() {
           </div>
 
           {/* Predictive Workflow */}
-          <div className="bg-white rounded-xl border border-slate-200 p-7 shadow-sm shadow-black/[0.02]">
+          <div className="bg-white rounded-xl border border-slate-200/80 p-7 shadow-[0_4px_32px_-8px_rgba(0,0,0,0.06),0_1px_8px_-2px_rgba(0,0,0,0.03)]">
             <div className="mb-6">
               <div className="inline-flex items-center gap-2 mb-2">
                 <div className="w-2 h-2 rounded-full bg-indigo-600" />
