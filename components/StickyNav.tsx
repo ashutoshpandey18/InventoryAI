@@ -33,6 +33,24 @@ export function StickyNav() {
     }
   }, [])
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+
+    if (element) {
+      const offset = 70 // Account for sticky header
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+      setIsMobileMenuOpen(false)
+    }
+  }
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
@@ -57,6 +75,7 @@ export function StickyNav() {
               <a
                 key={link.label}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="relative text-sm text-slate-500 hover:text-slate-900 transition-colors duration-150 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               >
                 {link.label}
@@ -67,13 +86,13 @@ export function StickyNav() {
           {/* CTA — Desktop */}
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="#signin"
+              href="/signin"
               className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-2 py-1"
             >
               Sign In
             </a>
             <a
-              href="#trial"
+              href="/signup"
               className="inline-flex items-center justify-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-4 py-2 shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
               Start Free Trial
@@ -101,22 +120,21 @@ export function StickyNav() {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="block text-sm text-slate-600 hover:text-slate-900 transition-colors duration-150 py-2 px-1"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href="#signin"
-              onClick={() => setIsMobileMenuOpen(false)}
+              href="/signin"
               className="block text-sm text-slate-600 hover:text-slate-900 transition-colors duration-150 py-2 px-1"
             >
               Sign In
             </a>
             <div className="pt-2">
               <a
-                href="#trial"
+                href="/signup"
                 className="block text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-4 py-2.5 shadow-sm transition-colors duration-150"
               >
                 Start Free Trial

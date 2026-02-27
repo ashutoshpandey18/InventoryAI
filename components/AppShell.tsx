@@ -11,10 +11,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     setIsSidebarOpen(!isSidebarOpen)
   }
 
+  const closeSidebar = () => {
+    setIsSidebarOpen(false)
+  }
+
   return (
     <div className="min-h-screen">
       <Header onMenuClick={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-      <Sidebar isOpen={isSidebarOpen} />
+      <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
       <main className="lg:pl-64 pt-16">
         <div className="p-6">{children}</div>
       </main>

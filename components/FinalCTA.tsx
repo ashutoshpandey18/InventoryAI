@@ -12,16 +12,20 @@ export function FinalCTA() {
           </h2>
 
           <p className="text-base text-slate-500 max-w-lg mx-auto">
-            See how the system works with a live demo.
+            Join hundreds of businesses using InventoryAI to optimize their inventory.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-            <Button variant="primary" size="lg">
-              Start Free Trial
-            </Button>
-            <Button variant="secondary" size="lg">
-              Schedule Demo
-            </Button>
+            <a href="/signup">
+              <Button variant="primary" size="lg">
+                Start Free Trial
+              </Button>
+            </a>
+            <a href="/signin">
+              <Button variant="secondary" size="lg">
+                Sign In
+              </Button>
+            </a>
           </div>
 
           <p className="text-sm text-slate-400">

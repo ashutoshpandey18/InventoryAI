@@ -1,0 +1,13 @@
+# services/
+# This folder contains all business service modules.
+# Each service encapsulates domain logic for one entity.
+#
+# Planned structure (implemented in future days):
+#
+# services/
+#   inventory.service.ts   — stock queries, reorder checks
+#   product.service.ts     — product CRUD
+#   sale.service.ts        — sale recording
+#   prediction.service.ts  — demand forecast reads/writes
+#   store.service.ts       — store management
+#   user.service.ts        — user management

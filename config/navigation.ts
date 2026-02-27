@@ -6,9 +6,9 @@ export interface NavItem {
 }
 
 export const navigationItems: NavItem[] = [
-  { label: 'Dashboard', href: '/', icon: 'LayoutDashboard' },
-  { label: 'Analytics', href: '/analytics', icon: 'BarChart3' },
-  { label: 'Users', href: '/users', icon: 'Users' },
-  { label: 'Documents', href: '/documents', icon: 'FileText' },
-  { label: 'Settings', href: '/settings', icon: 'Settings' },
+  { label: 'Dashboard', href: '/dashboard', icon: 'LayoutDashboard' },
+  { label: 'Products', href: '/dashboard/products', icon: 'Package' },
+  { label: 'Sales', href: '/dashboard/sales', icon: 'ShoppingCart' },
+  { label: 'Analytics', href: '/dashboard/analytics', icon: 'BarChart3' },
+  { label: 'Settings', href: '/dashboard/settings', icon: 'Settings' },
 ]

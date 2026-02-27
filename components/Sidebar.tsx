@@ -9,10 +9,13 @@ import {
   Settings,
   FileText,
   BarChart3,
+  Package,
+  ShoppingCart,
 } from 'lucide-react'
 
 interface SidebarProps {
   isOpen: boolean
+  onClose?: () => void
 }
 
 const ICONS: Record<string, any> = {
@@ -21,9 +24,11 @@ const ICONS: Record<string, any> = {
   Settings,
   FileText,
   BarChart3,
+  Package,
+  ShoppingCart,
 }
 
-export function Sidebar({ isOpen }: SidebarProps) {
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const pathname = usePathname()
 
   return (
@@ -32,6 +37,7 @@ export function Sidebar({ isOpen }: SidebarProps) {
         <div
           className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-20 lg:hidden"
           aria-hidden="true"
+          onClick={onClose}
         />
       )}
       <aside
@@ -47,6 +53,7 @@ export function Sidebar({ isOpen }: SidebarProps) {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => onClose?.()}
                 className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
                   isActive
                     ? 'bg-indigo-50 text-indigo-700'
