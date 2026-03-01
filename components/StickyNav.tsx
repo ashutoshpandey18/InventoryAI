@@ -4,10 +4,9 @@ import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Features', href: '#features' },
+  { label: 'Product', href: '#product' }                                                                                                  ,
   { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
+  { label: 'Sign In', href: '/signin' },
 ]
 
 export function StickyNav() {
@@ -15,31 +14,34 @@ export function StickyNav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout | null = null
+    let ticking = false
 
     const handleScroll = () => {
-      if (timeoutId) return
-
-      timeoutId = setTimeout(() => {
-        setIsScrolled(window.scrollY > 20)
-        timeoutId = null
-      }, 100)
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 10)
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
+    handleScroll() // Check initial state
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      if (timeoutId) clearTimeout(timeoutId)
     }
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/')) return
+    
     e.preventDefault()
     const targetId = href.replace('#', '')
     const element = document.getElementById(targetId)
 
     if (element) {
-      const offset = 70 // Account for sticky header
+      const offset = 80
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
       const offsetPosition = elementPosition - offset
 
@@ -53,94 +55,124 @@ export function StickyNav() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-sm'
-          : 'bg-white/70 backdrop-blur-sm'
-      } border-b border-slate-200/60`}
+      className={`fixed left-0 right-0 z-50 transition-all duration-200 ease-out ${
+        isScrolled ? 'top-4' : 'top-0'
+      }`}
+      style={{
+        background: 'transparent',
+        pointerEvents: 'none',
+      }}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-14">
-          {/* Logo */}
+      <div 
+        className={`mx-auto transition-all duration-200 ease-out ${
+          isScrolled 
+            ? 'max-w-5xl px-3 lg:px-4' 
+            : 'max-w-5xl px-4 lg:px-6'
+        }`}
+      >
+        <div 
+          className={`flex items-center justify-between transition-all duration-200 ease-out ${
+            isScrolled 
+              ? 'h-14 bg-white/65 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] px-5' 
+              : 'h-18 bg-transparent px-3'
+          }`}
+          style={{
+            transform: isScrolled ? 'scale(1)' : 'scale(0.98)',
+            opacity: isScrolled ? 1 : 1,
+            backdropFilter: isScrolled ? 'blur(24px) saturate(150%)' : 'none',
+            WebkitBackdropFilter: isScrolled ? 'blur(24px) saturate(150%)' : 'none',
+            border: isScrolled ? '1px solid rgba(255, 255, 255, 0.35)' : 'none',
+            willChange: isScrolled ? 'backdrop-filter' : 'auto',
+            pointerEvents: 'auto',
+          }}
+        >
+          {/* Logo - Left */}
           <a
             href="/"
-            className="text-base font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-1 py-0.5"
+            className={`text-lg font-bold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-2 py-1 tracking-tight transition-colors duration-200 ${
+              isScrolled ? 'text-slate-900' : 'text-white'
+            }`}
           >
-            Inventory<span className="text-indigo-600">AI</span>
+            InventoryAI
           </a>
 
-          {/* Navigation Links — Desktop */}
-          <nav className="hidden md:flex items-center gap-1">
+          {/* Navigation Links — Center Desktop */}
+          <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="relative text-sm text-slate-500 hover:text-slate-900 transition-colors duration-150 px-3 py-1.5 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className={`text-sm font-medium transition-all duration-200 rounded-full px-4 py-2 ${
+                  isScrolled 
+                    ? 'text-slate-700 hover:bg-slate-100 hover:text-slate-900' 
+                    : 'text-white/90 hover:bg-white/15 hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* CTA — Desktop */}
-          <div className="hidden md:flex items-center gap-4">
-            <a
-              href="/signin"
-              className="text-sm text-slate-500 hover:text-slate-900 transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 rounded-md px-2 py-1"
-            >
-              Sign In
-            </a>
+          {/* CTA — Right Desktop */}
+          <div className="hidden md:flex items-center">
             <a
               href="/signup"
-              className="inline-flex items-center justify-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-4 py-2 shadow-sm transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="inline-flex items-center justify-center text-sm font-semibold rounded-full px-6 py-2.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 bg-slate-900 text-white hover:bg-slate-800 shadow-md hover:shadow-lg focus:ring-slate-900"
             >
-              Start Free Trial
+              Book a Demo
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-slate-500 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md"
+            className={`md:hidden p-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-md transition-colors duration-200 ${
+              isScrolled ? 'text-slate-900' : 'text-white'
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
-              <X className="h-5 w-5" />
+              <X className="h-6 w-6" />
             ) : (
-              <Menu className="h-5 w-5" />
+              <Menu className="h-6 w-6" />
             )}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden pb-4 space-y-1 border-t border-slate-100 pt-3">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="block text-sm text-slate-600 hover:text-slate-900 transition-colors duration-150 py-2 px-1"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="/signin"
-              className="block text-sm text-slate-600 hover:text-slate-900 transition-colors duration-150 py-2 px-1"
-            >
-              Sign In
-            </a>
-            <div className="pt-2">
-              <a
-                href="/signup"
-                className="block text-center text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg px-4 py-2.5 shadow-sm transition-colors duration-150"
-              >
-                Start Free Trial
-              </a>
-            </div>
-          </nav>
+          <div className={`md:hidden absolute left-0 right-0 mt-4 mx-4 bg-white/65 backdrop-blur-xl backdrop-saturate-150 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] overflow-hidden transition-all duration-200 ${
+            isScrolled ? 'top-full' : 'top-20'
+          }`}
+            style={{
+              backdropFilter: 'blur(24px) saturate(150%)',
+              WebkitBackdropFilter: 'blur(24px) saturate(150%)',
+              border: '1px solid rgba(255, 255, 255, 0.35)',
+              willChange: 'backdrop-filter',
+            }}
+          >
+            <nav className="p-4 space-y-1">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="block text-sm text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors duration-150 py-3 px-4 rounded-xl font-medium"
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="pt-2">
+                <a
+                  href="/signup"
+                  className="block text-center text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-full px-4 py-3 shadow-md transition-all duration-200"
+                >
+                  Book a Demo
+                </a>
+              </div>
+            </nav>
+          </div>
         )}
       </div>
     </header>

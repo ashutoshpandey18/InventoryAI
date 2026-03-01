@@ -1,9 +1,9 @@
 import { StickyNav } from '@/components/StickyNav'
 import { Hero } from '@/components/Hero'
+import { ScrollReveal } from '@/components/ScrollReveal'
 import { ProblemGrid } from '@/components/ProblemGrid'
 import { FeatureGrid } from '@/components/FeatureGrid'
 import { WorkflowComparison } from '@/components/WorkflowComparison'
-import { DashboardDemo } from '@/components/DashboardDemo'
 import { SalesVelocityChartWrapper } from '@/components/SalesVelocityChartWrapper'
 import { InventoryTable } from '@/components/InventoryTable'
 import { AIAssistantPreview } from '@/components/AIAssistantPreview'
@@ -75,12 +75,20 @@ export default function Home() {
       {/* ─── Page content ─── */}
       <div className="relative" style={{ zIndex: 1 }}>
         <StickyNav />
-        <main className="min-h-screen pt-14">
+        <main className="min-h-screen">
           <Hero />
-          <ProblemGrid />
-          <FeatureGrid />
-          <WorkflowComparison />
-          <DashboardDemo />
+          
+          {/* Spacer for overlapping dashboard */}
+          <div className="h-20" />
+          
+          {/* Scroll reveal animation wrapper */}
+          <ScrollReveal>
+            <div className="bg-white relative z-10">
+              <ProblemGrid />
+              <FeatureGrid />
+              <WorkflowComparison />
+            </div>
+          </ScrollReveal>
 
           <section className="py-20">
             <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-12">
