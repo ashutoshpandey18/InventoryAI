@@ -239,6 +239,7 @@ export function Hero() {
                       ))}
                     </div>
                   </div>
+                </div>
               </div>
 
               {/* Bottom fade mask - creates the "cropped" effect */}
