@@ -41,7 +41,7 @@ export function Hero() {
           
           {/* Main Headline */}
           <h1 
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.25] tracking-tight text-white max-w-5xl"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.5] tracking-tight text-white max-w-5xl"
             style={{ letterSpacing: '-0.02em' }}
           >
             The AI Layer for Your<br />Partner Ecosystem
