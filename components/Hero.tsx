@@ -72,7 +72,7 @@ export function Hero() {
       </div>
 
       {/* Dashboard Preview - Bottom of Hero, Overlapping Fold */}
-      <div className="absolute bottom-[-60px] left-1/2 -translate-x-1/2 z-20 w-full max-w-5xl px-6 hidden lg:block">
+      <div className="absolute bottom-[-60px] left-1/2 -translate-x-1/2 z-20 w-full max-w-4xl px-6 hidden lg:block">
         <div 
           className="dashboard-preview-container relative"
           style={{
@@ -86,7 +86,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-white/98 backdrop-blur-2xl" />
             
             {/* Dashboard Content - Visible portion */}
-            <div className="relative h-[400px] overflow-hidden">
+            <div className="relative h-[320px] overflow-hidden">
               <div className="bg-white">
                 {/* Window chrome bar */}
                 <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100">
