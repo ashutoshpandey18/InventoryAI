@@ -73,8 +73,8 @@ export function StickyNav() {
         <div 
           className={`flex items-center justify-between transition-all duration-200 ease-out ${
             isScrolled 
-              ? 'h-14 bg-white/65 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] px-5' 
-              : 'h-18 bg-transparent px-3'
+              ? 'h-[72px] bg-white/65 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] px-5' 
+              : 'h-24 bg-transparent px-3'
           }`}
           style={{
             transform: isScrolled ? 'scale(1)' : 'scale(0.98)',

@@ -36,24 +36,24 @@ export function Hero() {
       </div>
 
       {/* Hero Content - Center Aligned */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pt-4 pb-60">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-60">
         <div className="flex flex-col items-center text-center">
           
           {/* Main Headline */}
           <h1 
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.4] tracking-tight text-white max-w-5xl"
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.25] tracking-tight text-white max-w-5xl"
             style={{ letterSpacing: '-0.02em' }}
           >
             The AI Layer for Your<br />Partner Ecosystem
           </h1>
 
           {/* 20-word Description */}
-          <p className="text-base lg:text-lg text-white/80 leading-relaxed max-w-3xl mt-4">
+          <p className="text-base lg:text-lg text-white/80 leading-relaxed max-w-3xl mt-3">
             Automate partner discovery, onboarding, and revenue optimization with AI agents that understand your market and drive predictable channel growth.
           </p>
 
           {/* CTA Buttons Row */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-5">
             <a
               href="/signup"
               className="inline-flex items-center justify-center text-base font-semibold rounded-full px-8 py-3.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 hover:scale-105 bg-slate-900 text-white hover:bg-slate-800 shadow-lg hover:shadow-xl focus:ring-slate-900"
@@ -72,11 +72,11 @@ export function Hero() {
       </div>
 
       {/* Dashboard Preview - Bottom of Hero, Overlapping Fold */}
-      <div className="absolute bottom-[-60px] left-1/2 -translate-x-1/2 z-20 w-full max-w-4xl px-6 hidden lg:block">
+      <div className="absolute bottom-[-45px] left-1/2 -translate-x-1/2 z-20 w-full max-w-4xl px-6 hidden lg:block">
         <div 
           className="dashboard-preview-container relative"
           style={{
-            transform: 'perspective(1200px) rotateX(6deg) scale(0.98)',
+            transform: 'perspective(1200px) rotateX(6deg) scale(1.03)',
             transformOrigin: 'center top',
           }}
         >
@@ -86,7 +86,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-white/98 backdrop-blur-2xl" />
             
             {/* Dashboard Content - Visible portion */}
-            <div className="relative h-[320px] overflow-hidden">
+            <div className="relative h-[480px] overflow-hidden">
               <div className="bg-white">
                 {/* Window chrome bar */}
                 <div className="flex items-center gap-2 px-6 py-4 border-b border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100">
