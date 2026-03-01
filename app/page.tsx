@@ -1,5 +1,7 @@
 import { StickyNav } from '@/components/StickyNav'
 import { Hero } from '@/components/Hero'
+import { RevenueEngineSection } from '@/components/RevenueEngineSection'
+import { DealPipelineSection } from '@/components/DealPipelineSection'
 import { ScrollReveal } from '@/components/ScrollReveal'
 import { ProblemGrid } from '@/components/ProblemGrid'
 import { FeatureGrid } from '@/components/FeatureGrid'
@@ -80,6 +82,12 @@ export default function Home() {
           
           {/* Spacer for overlapping dashboard */}
           <div className="h-20" />
+          
+          {/* Revenue Engine Section - Scroll-Triggered Dashboard */}
+          <RevenueEngineSection />
+          
+          {/* Deal Pipeline Section - Scroll-Triggered Kanban Dashboard */}
+          <DealPipelineSection />
           
           {/* Scroll reveal animation wrapper */}
           <ScrollReveal>
