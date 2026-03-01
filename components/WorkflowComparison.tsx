@@ -5,7 +5,7 @@ import { manualWorkflow, predictiveWorkflow } from '@/lib/mock-data'
 
 export function WorkflowComparison() {
   return (
-    <section id="how-it-works" className="py-20">
+    <section id="how-it-works" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-14">
           <p className="text-sm font-medium text-indigo-600 mb-3">Comparison</p>

@@ -2,6 +2,8 @@ import { StickyNav } from '@/components/StickyNav'
 import { Hero } from '@/components/Hero'
 import { RevenueEngineSection } from '@/components/RevenueEngineSection'
 import { DealPipelineSection } from '@/components/DealPipelineSection'
+import { DiscoveryIntelligenceSection } from '@/components/DiscoveryIntelligenceSection'
+import { WhyInventoryAI } from '@/components/WhyInventoryAI'
 import { ScrollReveal } from '@/components/ScrollReveal'
 import { ProblemGrid } from '@/components/ProblemGrid'
 import { FeatureGrid } from '@/components/FeatureGrid'
@@ -89,6 +91,12 @@ export default function Home() {
           {/* Deal Pipeline Section - Scroll-Triggered Kanban Dashboard */}
           <DealPipelineSection />
           
+          {/* Discovery Intelligence Section - Scroll-Triggered Partner Discovery */}
+          <DiscoveryIntelligenceSection />
+          
+          {/* Why InventoryAI - Problem vs Solution */}
+          <WhyInventoryAI />
+          
           {/* Scroll reveal animation wrapper */}
           <ScrollReveal>
             <div className="bg-white relative z-10">
@@ -98,14 +106,14 @@ export default function Home() {
             </div>
           </ScrollReveal>
 
-          <section className="py-20">
+          <section className="py-16">
             <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-12">
               <SalesVelocityChartWrapper />
               <InventoryTable />
             </div>
           </section>
 
-          <section className="py-20">
+          <section className="py-16">
             <div className="max-w-4xl mx-auto px-6 lg:px-10">
               <div className="mb-10">
                 <p className="text-sm font-medium text-indigo-600 mb-3">Assistant</p>
@@ -120,7 +128,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="pricing" className="py-20 bg-slate-50/50">
+          <section id="pricing" className="py-16 bg-slate-50/50">
             <div className="max-w-5xl mx-auto px-6 lg:px-10">
               <div className="text-center mb-12">
                 <p className="text-sm font-medium text-indigo-600 mb-3">Pricing</p>
@@ -242,7 +250,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="about" className="py-20">
+          <section id="about" className="py-16">
             <div className="max-w-4xl mx-auto px-6 lg:px-10">
               <div className="text-center mb-12">
                 <p className="text-sm font-medium text-indigo-600 mb-3">About Us</p>

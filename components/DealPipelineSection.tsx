@@ -32,9 +32,9 @@ export function DealPipelineSection() {
   }, [])
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      className="relative bg-white py-28"
+      className="relative bg-white py-20"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">

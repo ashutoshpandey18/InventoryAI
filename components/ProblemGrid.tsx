@@ -11,7 +11,7 @@ const problems = [
 
 export function ProblemGrid() {
   return (
-    <section className="py-20">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <p className="text-sm font-medium text-indigo-600 mb-3">The problem</p>
         <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-12 max-w-xl">

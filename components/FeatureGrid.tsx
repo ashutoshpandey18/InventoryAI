@@ -43,7 +43,7 @@ const features: Feature[] = [
 
 export function FeatureGrid() {
   return (
-    <section id="features" className="py-20">
+    <section id="features" className="py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-14">
           <p className="text-sm font-medium text-indigo-600 mb-3">Features</p>
