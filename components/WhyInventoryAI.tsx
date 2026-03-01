@@ -1,6 +1,6 @@
 export function WhyInventoryAI() {
   return (
-    <section className="py-28 bg-slate-50">
+    <section className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         {/* Top Eyebrow */}
         <div className="text-center mb-5">

@@ -89,33 +89,19 @@ export function DealPipelineSection() {
           <div className="relative">
             {/* Gradient Frame Container */}
             <div 
-              className="relative rounded-3xl p-8 overflow-hidden"
+              className="relative rounded-3xl overflow-hidden flex flex-col justify-start pt-10 px-10 pb-10 min-h-[520px] md:min-h-[520px]"
               style={{
                 background: 'linear-gradient(135deg, #F1A7A7 0%, #E7BDBD 100%)',
               }}
             >
-              {/* Empty placeholder - only visible when dashboard is shown */}
-              <div 
-                className="bg-white/0 rounded-2xl p-6 min-h-[500px] relative"
-                style={{
-                  opacity: 0,
-                  pointerEvents: 'none',
-                }}
-              >
-                {/* Invisible spacer */}
-              </div>
-
               {/* Animated Kanban Dashboard - Slides Up from Bottom */}
               <div 
-                className="absolute z-10"
+                className="w-full self-start"
                 style={{
-                  bottom: isVisible ? '32px' : '-40px',
-                  left: '50%',
-                  width: 'calc(100% - 64px)',
                   opacity: isVisible ? 1 : 0,
                   transform: isVisible 
-                    ? 'translateX(-50%) translateY(0)' 
-                    : 'translateX(-50%) translateY(120px)',
+                    ? 'translateY(0)' 
+                    : 'translateY(60px)',
                   pointerEvents: 'none',
                   visibility: isVisible ? 'visible' : 'hidden',
                   willChange: 'transform, opacity',

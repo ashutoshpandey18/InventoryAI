@@ -35,35 +35,26 @@ export function DiscoveryIntelligenceSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-white to-slate-50/30 relative"
+      className="py-20 bg-white relative"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side — Gradient Dashboard Frame */}
           <div
-            className="relative rounded-3xl overflow-hidden"
+            className="relative rounded-3xl overflow-hidden flex flex-col justify-start pt-10 px-10 pb-10 min-h-[520px] md:min-h-[520px]"
             style={{
               background: 'linear-gradient(135deg, #C7E0C2, #B8D8C8)',
-              height: '600px',
             }}
           >
-            {/* Invisible placeholder to prevent layout shift */}
-            <div className="absolute inset-0 bg-white/0" style={{ opacity: 0 }} />
-
             {/* Dashboard — Slides up from bottom */}
             <div
+              className="w-full max-w-[540px] self-start"
               style={{
-                position: 'absolute',
-                bottom: isVisible ? '32px' : '-40px',
-                left: '50%',
-                width: 'calc(100% - 64px)',
-                maxWidth: '520px',
                 opacity: isVisible ? 1 : 0,
-                transform: `translateX(-50%) translateY(${isVisible ? '0px' : '120px'})`,
+                transform: isVisible ? 'translateY(0)' : 'translateY(60px)',
                 transition: 'all 0.7s cubic-bezier(0.22, 1, 0.36, 1)',
                 visibility: isVisible ? 'visible' : 'hidden',
                 willChange: 'transform, opacity',
-                zIndex: 10,
               }}
             >
               {/* Partner Discovery Dashboard */}
