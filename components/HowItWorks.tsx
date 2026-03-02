@@ -62,7 +62,7 @@ export function HowItWorks() {
   ]
 
   return (
-    <section ref={sectionRef} className="py-28 bg-white">
+    <section id="how-it-works" ref={sectionRef} className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6 lg:px-10">
         {/* Eyebrow */}
         <div className="text-center mb-5">
