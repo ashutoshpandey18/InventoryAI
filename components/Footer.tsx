@@ -15,7 +15,7 @@ export function Footer() {
             {/* Column 1 — Social */}
             <div>
               {/* Brand Name */}
-              <h3 className="text-lg font-bold text-white mb-4">
+              <h3 className="text-lg font-bold text-black mb-4">
                 InventoryAI
               </h3>
               
@@ -93,14 +93,14 @@ export function Footer() {
 
             {/* Column 2 — Pages */}
             <div>
-              <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wider mb-4">
+              <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider mb-4">
                 PAGES
               </h3>
               <ul className="space-y-3">
                 <li>
                   <a
                     href="#"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     Home
                   </a>
@@ -108,7 +108,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#features"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     Features
                   </a>
@@ -116,7 +116,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#how-it-works"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     How It Works
                   </a>
@@ -124,7 +124,7 @@ export function Footer() {
                 <li>
                   <a
                     href="/signin"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     Sign In
                   </a>
@@ -134,14 +134,14 @@ export function Footer() {
 
             {/* Column 3 — Information */}
             <div>
-              <h3 className="text-xs font-semibold text-white/60 uppercase tracking-wider mb-4">
+              <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider mb-4">
                 INFORMATION
               </h3>
               <ul className="space-y-3">
                 <li>
                   <a
                     href="#contact"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     Contact
                   </a>
@@ -149,7 +149,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#privacy"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     Privacy
                   </a>
@@ -157,7 +157,7 @@ export function Footer() {
                 <li>
                   <a
                     href="#terms"
-                    className="text-white hover:text-white/80 transition-colors duration-150"
+                    className="text-black hover:text-black/60 transition-colors duration-150"
                   >
                     Terms of use
                   </a>

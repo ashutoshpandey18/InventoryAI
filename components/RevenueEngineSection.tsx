@@ -138,7 +138,7 @@ export function RevenueEngineSection() {
           </div>
 
           {/* Right Side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Eyebrow */}
             <div className="text-xs font-bold tracking-widest uppercase text-slate-500">
               Revenue Engine
@@ -163,7 +163,7 @@ export function RevenueEngineSection() {
             </div>
 
             {/* Feature Pills */}
-            <div className="space-y-3 pt-4">
+            <div className="space-y-3">
               <div className="flex flex-wrap gap-3">
                 <button className="px-5 py-2.5 rounded-full border-2 border-slate-200 bg-white text-slate-700 font-semibold text-sm hover:bg-slate-50 hover:border-slate-300 transition-all">
                   Commissions
