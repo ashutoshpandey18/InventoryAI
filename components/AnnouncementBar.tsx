@@ -22,12 +22,12 @@ export function AnnouncementBar() {
       `}
     >
       <p className="text-white text-[13px] font-normal tracking-wide text-center px-4">
-        Website under maintenance — for any queries contact me on{' '}
+        Website under maintenance - for any queries contact me on{' '}
         <a
-          href="mailto:wrajneesh807@gmail.com"
-          className="underline hover:text-slate-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black rounded"
+          href="mailto:wwrajneesh807@gmail.com"
+          className="underline hover:text-slate-300 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-white rounded"
         >
-          wrajneesh807@gmail.com
+          wwrajneesh807@gmail.com
         </a>
       </p>
     </div>

@@ -12,8 +12,7 @@
   }
 
   body {
-    @apply text-slate-900 antialiased;
-    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);
+    @apply bg-white text-slate-900 antialiased;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 

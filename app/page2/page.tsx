@@ -2,7 +2,7 @@ import { StickyNav } from '@/components/StickyNav'
 
 export default function Page2() {
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-blue-100">
       <StickyNav />
       
       <main className="pt-32 pb-20">
