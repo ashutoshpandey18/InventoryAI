@@ -68,14 +68,14 @@ export function StickyNav() {
       <div 
         className={`mx-auto transition-all duration-200 ease-out ${
           isScrolled 
-            ? 'max-w-4xl px-3 lg:px-4' 
-            : 'max-w-4xl px-4 lg:px-6'
+            ? 'max-w-3xl px-3 lg:px-4' 
+            : 'max-w-3xl px-4 lg:px-6'
         }`}
       >
         <div 
           className={`flex items-center justify-between transition-all duration-300 ease-out ${
             isScrolled 
-              ? 'h-[64px] bg-white/70 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] px-5' 
+              ? 'h-[64px] bg-white/70 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_0_0_1px_rgba(0,0,0,0.1),0_8px_24px_rgba(0,0,0,0.15)] px-5' 
               : 'h-20 bg-transparent px-3'
           }`}
           style={{
