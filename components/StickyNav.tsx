@@ -19,7 +19,8 @@ export function StickyNav() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 10)
+          // Trigger transformation after scrolling past announcement bar
+          setIsScrolled(window.scrollY > 50)
           ticking = false
         })
         ticking = true
@@ -41,7 +42,8 @@ export function StickyNav() {
     const element = document.getElementById(targetId)
 
     if (element) {
-      const offset = 80
+      // Account for announcement bar (38px) + navbar height (64px when scrolled) + padding
+      const offset = 110
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
       const offsetPosition = elementPosition - offset
 
@@ -55,8 +57,8 @@ export function StickyNav() {
 
   return (
     <header
-      className={`fixed left-0 right-0 z-50 transition-all duration-200 ease-out ${
-        isScrolled ? 'top-4' : 'top-[38px]'
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-out ${
+        isScrolled ? 'top-[42px]' : 'top-[38px]'
       }`}
       style={{
         background: 'transparent',
@@ -71,17 +73,17 @@ export function StickyNav() {
         }`}
       >
         <div 
-          className={`flex items-center justify-between transition-all duration-200 ease-out ${
+          className={`flex items-center justify-between transition-all duration-300 ease-out ${
             isScrolled 
-              ? 'h-[72px] bg-white/65 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] px-5' 
-              : 'h-24 bg-transparent px-3'
+              ? 'h-[64px] bg-white/70 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.12)] px-5' 
+              : 'h-20 bg-transparent px-3'
           }`}
           style={{
-            transform: isScrolled ? 'scale(1)' : 'scale(0.98)',
-            opacity: isScrolled ? 1 : 1,
+            transform: isScrolled ? 'scale(1)' : 'scale(1)',
+            opacity: 1,
             backdropFilter: isScrolled ? 'blur(24px) saturate(150%)' : 'none',
             WebkitBackdropFilter: isScrolled ? 'blur(24px) saturate(150%)' : 'none',
-            border: isScrolled ? '1px solid rgba(255, 255, 255, 0.35)' : 'none',
+            border: isScrolled ? '1px solid rgba(255, 255, 255, 0.4)' : 'none',
             willChange: isScrolled ? 'backdrop-filter' : 'auto',
             pointerEvents: 'auto',
           }}
