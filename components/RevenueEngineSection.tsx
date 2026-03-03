@@ -37,13 +37,13 @@ export function RevenueEngineSection() {
       className="relative bg-white py-20"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           {/* Left Side - Dashboard Frame */}
           <div className="relative">
             {/* Gradient Frame Container */}
             <div 
-              className="relative rounded-3xl overflow-hidden flex flex-col justify-start pt-10 px-10 pb-10 min-h-[520px] md:min-h-[520px]"
+              className="relative rounded-3xl overflow-hidden flex flex-col justify-start p-8"
               style={{
                 background: 'linear-gradient(135deg, #7AA2D6 0%, #8B6FB3 100%)',
               }}
