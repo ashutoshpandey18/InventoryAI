@@ -68,8 +68,8 @@ export function StickyNav() {
       <div 
         className={`mx-auto transition-all duration-200 ease-out ${
           isScrolled 
-            ? 'max-w-5xl px-3 lg:px-4' 
-            : 'max-w-5xl px-4 lg:px-6'
+            ? 'max-w-4xl px-3 lg:px-4' 
+            : 'max-w-4xl px-4 lg:px-6'
         }`}
       >
         <div 

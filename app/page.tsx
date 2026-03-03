@@ -11,7 +11,7 @@ import { Footer } from '@/components/Footer'
 
 export default function Home() {
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-white min-h-screen">
 
       {/* ─── Luminous ambient background layer ─── */}
       <div
