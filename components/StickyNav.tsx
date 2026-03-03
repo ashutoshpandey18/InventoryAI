@@ -56,7 +56,7 @@ export function StickyNav() {
   return (
     <header
       className={`fixed left-0 right-0 z-50 transition-all duration-200 ease-out ${
-        isScrolled ? 'top-4' : 'top-0'
+        isScrolled ? 'top-4' : 'top-[38px]'
       }`}
       style={{
         background: 'transparent',
