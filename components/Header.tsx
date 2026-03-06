@@ -31,10 +31,23 @@ export function Header({ onMenuClick, isSidebarOpen }: HeaderProps) {
 
   const handleLogout = async () => {
     setLoggingOut(true)
+    setShowDropdown(false)
     try {
-      await fetch('/api/auth/logout', { method: 'POST' })
-    } finally {
-      router.push('/signin')
+      const response = await fetch('/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+      })
+
+      if (response.ok) {
+        // Force page reload to clear all state and redirect
+        window.location.href = '/signin'
+      } else {
+        throw new Error('Logout failed')
+      }
+    } catch (error) {
+      console.error('Logout error:', error)
+      // Even if API fails, redirect to signin
+      window.location.href = '/signin'
     }
   }
 
@@ -43,7 +56,7 @@ export function Header({ onMenuClick, isSidebarOpen }: HeaderProps) {
     : user?.email?.slice(0, 2).toUpperCase() ?? '??'
 
   return (
-    <header className="h-16 border-b border-slate-200 bg-white sticky top-0 z-10">
+    <header className="h-16 border-b border-white/35 bg-white/65 backdrop-blur-xl backdrop-saturate-150 sticky top-0 z-10 shadow-sm">
       <div className="h-full px-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Button
@@ -55,13 +68,15 @@ export function Header({ onMenuClick, isSidebarOpen }: HeaderProps) {
           >
             {isSidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </Button>
-          <span className="text-xl font-bold text-slate-900 tracking-tight">InventoryAI</span>
+          <span className="text-xl font-bold text-slate-900 tracking-tight">
+            Inventory<span className="text-indigo-600">AI</span>
+          </span>
         </div>
 
         <div className="relative">
           <button
             onClick={() => setShowDropdown((v) => !v)}
-            className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg hover:bg-slate-50 transition-colors"
+            className="flex items-center gap-2.5 px-3 py-1.5 rounded-lg hover:bg-slate-100/50 transition-colors"
           >
             <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">
               {initials}
@@ -76,7 +91,7 @@ export function Header({ onMenuClick, isSidebarOpen }: HeaderProps) {
           {showDropdown && (
             <>
               <div className="fixed inset-0 z-10" onClick={() => setShowDropdown(false)} />
-              <div className="absolute right-0 top-full mt-1.5 w-56 bg-white rounded-xl shadow-lg border border-slate-100 z-20 overflow-hidden">
+              <div className="absolute right-0 top-full mt-1.5 w-56 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg border border-slate-100 z-20 overflow-hidden">
                 <div className="px-4 py-3 border-b border-slate-100">
                   <p className="text-sm font-semibold text-slate-900">{user?.name ?? '—'}</p>
                   <p className="text-xs text-slate-500 mt-0.5">{user?.email}</p>

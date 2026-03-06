@@ -1,18 +1,18 @@
 export function Footer() {
   return (
-    <footer className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+    <footer className="py-12 lg:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Glass Card */}
         <div
-          className="rounded-3xl p-12 backdrop-blur-xl"
+          className="rounded-3xl p-6 sm:p-8 md:p-12 backdrop-blur-xl"
           style={{
             backgroundColor: 'rgba(100, 116, 139, 0.55)',
             border: '1px solid rgba(255, 255, 255, 0.15)',
           }}
         >
           {/* 3-Column Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {/* Column 1 — Social */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
+            {/* Column 1 — Logo + Social */
             <div>
               {/* Brand Name */}
               <h3 className="text-lg font-bold text-black mb-4">

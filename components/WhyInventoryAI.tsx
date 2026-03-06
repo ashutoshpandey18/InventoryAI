@@ -1,7 +1,7 @@
 export function WhyInventoryAI() {
   return (
-    <section className="py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+    <section className="py-16 lg:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Top Eyebrow */}
         <div className="text-center mb-5">
           <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">
@@ -10,14 +10,14 @@ export function WhyInventoryAI() {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 text-center leading-tight max-w-[900px] mx-auto mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 text-center leading-tight max-w-[900px] mx-auto mb-16">
           Your inventory operations deserve better than spreadsheets
         </h2>
 
         {/* Two-Card Layout */}
         <div className="grid lg:grid-cols-2 gap-10">
           {/* Left Card — The Problem */}
-          <div className="bg-slate-100 rounded-3xl p-10 lg:p-12">
+          <div className="bg-slate-100 rounded-3xl p-7 sm:p-10 lg:p-12">
             {/* Eyebrow */}
             <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase mb-3">
               THE PROBLEM
@@ -58,7 +58,7 @@ export function WhyInventoryAI() {
           </div>
 
           {/* Right Card — The Solution */}
-          <div className="rounded-3xl p-10 lg:p-12" style={{ backgroundColor: '#F5EDE3' }}>
+          <div className="rounded-3xl p-7 sm:p-10 lg:p-12" style={{ backgroundColor: '#F5EDE3' }}>
             {/* Eyebrow */}
             <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase mb-3">
               THE SOLUTION

@@ -62,8 +62,8 @@ export function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" ref={sectionRef} className="py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
+    <section id="how-it-works" ref={sectionRef} className="py-16 lg:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Eyebrow */}
         <div className="text-center mb-5">
           <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">
@@ -72,7 +72,7 @@ export function HowItWorks() {
         </div>
 
         {/* Main Heading */}
-        <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 text-center leading-tight max-w-[900px] mx-auto mb-16">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 text-center leading-tight max-w-[900px] mx-auto mb-16">
           Up and running in four steps
         </h2>
 

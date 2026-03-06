@@ -1,22 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { storeService } from "@/services/store.service";
+import { createStoreSchema } from "@/validators/store.validator";
 import { requireAuth, handleAuthError } from "@/lib/middleware";
-import { z } from "zod";
-
-const createStoreSchema = z.object({
-  name: z.string().min(1, "Store name is required").max(100),
-});
+import { ZodError } from "zod";
 
 // GET /api/stores — list all stores for the logged-in user
 export async function GET() {
   try {
     const userId = await requireAuth();
-
-    const stores = await prisma.store.findMany({
-      where: { ownerId: userId },
-      orderBy: { createdAt: "asc" },
-    });
-
+    const stores = await storeService.getStoresByOwner(userId);
     return NextResponse.json(stores);
   } catch (error) {
     return handleAuthError(error);
@@ -28,26 +20,12 @@ export async function POST(request: NextRequest) {
   try {
     const userId = await requireAuth();
     const body = await request.json();
-    const { name } = createStoreSchema.parse(body);
+    const validatedData = createStoreSchema.parse(body);
 
-    // Generate a unique slug from the name
-    const baseSlug = name
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-    const slug = `${baseSlug}-${Date.now()}`;
-
-    const store = await prisma.store.create({
-      data: {
-        name,
-        slug,
-        ownerId: userId,
-      },
-    });
-
+    const store = await storeService.createStore(userId, validatedData);
     return NextResponse.json(store, { status: 201 });
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof ZodError) {
       return NextResponse.json(
         { error: "Validation error", details: error.errors },
         { status: 400 }

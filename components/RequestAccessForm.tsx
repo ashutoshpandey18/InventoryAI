@@ -25,7 +25,7 @@ export function RequestAccessForm() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="max-w-2xl mx-auto px-6 lg:px-10">
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-10">
         {/* Heading */}
         <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 text-center mb-8">
           Request Access

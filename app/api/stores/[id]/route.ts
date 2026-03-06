@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { prisma } from '@/lib/prisma'
+import { storeService } from '@/services/store.service'
+import { updateStoreSchema } from '@/validators/store.validator'
 import { requireAuth, requireStoreOwnership, handleAuthError } from '@/lib/middleware'
+import { ZodError } from 'zod'
 
 export async function PATCH(request: NextRequest, { params }: { params: { id: string } }) {
   try {
@@ -8,20 +10,17 @@ export async function PATCH(request: NextRequest, { params }: { params: { id: st
     await requireStoreOwnership(params.id, userId)
 
     const body = await request.json()
-    const { name } = body
+    const validatedData = updateStoreSchema.parse(body)
 
-    if (!name || typeof name !== 'string' || !name.trim()) {
-      return NextResponse.json({ error: 'Store name is required' }, { status: 400 })
-    }
-
-    const store = await prisma.store.update({
-      where: { id: params.id },
-      data: { name: name.trim() },
-      select: { id: true, name: true, createdAt: true },
-    })
-
+    const store = await storeService.updateStore(params.id, validatedData)
     return NextResponse.json(store)
   } catch (error) {
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        { error: 'Validation error', details: error.errors },
+        { status: 400 }
+      )
+    }
     return handleAuthError(error)
   }
 }
@@ -31,7 +30,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     const userId = await requireAuth()
     await requireStoreOwnership(params.id, userId)
 
-    await prisma.store.delete({ where: { id: params.id } })
+    await storeService.deleteStore(params.id)
     return NextResponse.json({ success: true })
   } catch (error) {
     return handleAuthError(error)

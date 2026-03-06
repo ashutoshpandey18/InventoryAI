@@ -13,15 +13,14 @@ export function DiscoveryIntelligenceSection() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.intersectionRatio >= 0.6) {
+          // Show dashboard as soon as section enters viewport; keep shown once revealed
+          if (entry.isIntersecting) {
             setIsVisible(true)
-          } else {
-            setIsVisible(false)
           }
         })
       },
       {
-        threshold: [0, 0.6],
+        threshold: 0.15,
       }
     )
 
@@ -35,13 +34,13 @@ export function DiscoveryIntelligenceSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-white relative"
+      className="py-14 lg:py-20 bg-white relative"
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Side — Gradient Dashboard Frame */}
           <div
-            className="relative rounded-3xl overflow-hidden flex flex-col justify-start pt-10 px-10 pb-10 min-h-[520px] md:min-h-[520px]"
+            className="relative rounded-3xl overflow-hidden flex flex-col justify-start p-5 sm:p-7 lg:pt-10 lg:px-10 lg:pb-10 min-h-[380px] lg:min-h-[520px]"
             style={{
               background: 'linear-gradient(135deg, #C7E0C2, #B8D8C8)',
             }}
@@ -223,14 +222,14 @@ export function DiscoveryIntelligenceSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
               Find partners your competitors haven't found yet
             </h2>
 
             {/* Description */}
             <p className="text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl">
-              Our AI continuously scans market signals, company activities, and integration patterns 
-              to surface high-potential partners before they appear on anyone else's radar. 
+              Our AI continuously scans market signals, company activities, and integration patterns
+              to surface high-potential partners before they appear on anyone else's radar.
               Stop relying on manual research and outdated databases.
             </p>
 

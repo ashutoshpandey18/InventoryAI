@@ -9,15 +9,13 @@ export function DealPipelineSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Show dashboard when 60% visible, hide when below 60%
-        if (entry.intersectionRatio >= 0.6) {
+        // Show dashboard as soon as section enters viewport; keep shown once revealed
+        if (entry.isIntersecting) {
           setIsVisible(true)
-        } else {
-          setIsVisible(false)
         }
       },
       {
-        threshold: [0, 0.6], // Track at 0% and 60% for bidirectional animation
+        threshold: 0.15,
         rootMargin: '0px',
       }
     )
@@ -34,11 +32,11 @@ export function DealPipelineSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white py-20"
+      className="relative bg-white py-14 lg:py-20"
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
           {/* Left Side - Content */}
           <div className="space-y-8">
             {/* Eyebrow */}
@@ -47,13 +45,13 @@ export function DealPipelineSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight max-w-lg">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight max-w-lg">
               Manage your entire partner lifecycle in one place
             </h2>
 
             {/* Description */}
             <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-              From discovery to deal closure, track every interaction, qualification step, and revenue milestone. 
+              From discovery to deal closure, track every interaction, qualification step, and revenue milestone.
               AI-powered insights help you prioritize high-value partners and identify risks before they become problems.
             </p>
 
@@ -88,19 +86,19 @@ export function DealPipelineSection() {
           {/* Right Side - Dashboard Frame */}
           <div className="relative">
             {/* Gradient Frame Container */}
-            <div 
-              className="relative rounded-3xl overflow-hidden flex flex-col justify-start pt-10 px-10 pb-10 min-h-[520px] md:min-h-[520px]"
+            <div
+              className="relative rounded-3xl overflow-hidden flex flex-col justify-start p-5 sm:p-7 lg:pt-10 lg:px-10 lg:pb-10 min-h-[380px] lg:min-h-[520px]"
               style={{
                 background: 'linear-gradient(135deg, #F1A7A7 0%, #E7BDBD 100%)',
               }}
             >
               {/* Animated Kanban Dashboard - Slides Up from Bottom */}
-              <div 
+              <div
                 className="w-full self-start"
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible 
-                    ? 'translateY(0)' 
+                  transform: isVisible
+                    ? 'translateY(0)'
                     : 'translateY(60px)',
                   pointerEvents: 'none',
                   visibility: isVisible ? 'visible' : 'hidden',

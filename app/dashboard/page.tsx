@@ -334,7 +334,7 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="space-y-6 min-h-screen bg-slate-50 p-6">
+    <div className="space-y-6 min-h-screen bg-slate-50 p-3 sm:p-4 lg:p-6">
       {showCreateStore && <CreateStoreModal onCreated={handleStoreCreated} onClose={() => setShowCreateStore(false)} isFirstStore={false} />}
 
       {/* Header */}
@@ -343,7 +343,7 @@ export default function DashboardPage() {
           <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
           <p className="text-sm text-slate-500 mt-0.5">Live inventory intelligence</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2">
           <div className="relative">
             <select value={selectedStoreId ?? ''} onChange={(e) => setSelectedStoreId(e.target.value)} className="appearance-none pl-3 pr-8 py-2 text-sm border border-slate-200 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer">
               {stores.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}

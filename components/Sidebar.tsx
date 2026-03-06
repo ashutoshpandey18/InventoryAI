@@ -41,7 +41,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         />
       )}
       <aside
-        className={`fixed left-0 top-16 bottom-0 z-30 w-64 bg-white border-r border-slate-200 transition-transform duration-200 lg:translate-x-0 ${
+        className={`fixed left-0 top-16 bottom-0 z-30 w-64 bg-white/65 backdrop-blur-xl backdrop-saturate-150 border-r border-white/35 shadow-sm transition-transform duration-200 lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
@@ -54,10 +54,10 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={() => onClose?.()}
-                className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
+                className={`flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
                   isActive
-                    ? 'bg-indigo-50 text-indigo-700'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                    ? 'bg-indigo-600 text-white shadow-md'
+                    : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100/50'
                 }`}
                 aria-current={isActive ? 'page' : undefined}
               >

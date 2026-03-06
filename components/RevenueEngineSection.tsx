@@ -9,15 +9,13 @@ export function RevenueEngineSection() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        // Show dashboard when 60% visible, hide when below 60%
-        if (entry.intersectionRatio >= 0.6) {
+        // Show dashboard as soon as section enters viewport; keep shown once revealed
+        if (entry.isIntersecting) {
           setIsVisible(true)
-        } else {
-          setIsVisible(false)
         }
       },
       {
-        threshold: [0, 0.6], // Track at 0% and 60% for bidirectional animation
+        threshold: 0.15,
         rootMargin: '0px',
       }
     )
@@ -34,27 +32,27 @@ export function RevenueEngineSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-white py-20"
+      className="relative bg-white py-14 lg:py-20"
     >
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+
           {/* Left Side - Dashboard Frame */}
           <div className="relative">
             {/* Gradient Frame Container */}
-            <div 
-              className="relative rounded-3xl overflow-hidden flex flex-col justify-start p-8"
+            <div
+              className="relative rounded-3xl overflow-hidden flex flex-col justify-start p-5 sm:p-7 lg:pt-10 lg:px-10 lg:pb-10 min-h-[380px] lg:min-h-[520px]"
               style={{
                 background: 'linear-gradient(135deg, #7AA2D6 0%, #8B6FB3 100%)',
               }}
             >
               {/* Animated Dashboard - Slides Up from Bottom */}
-              <div 
+              <div
                 className="w-full self-start"
                 style={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible 
-                    ? 'translateY(0)' 
+                  transform: isVisible
+                    ? 'translateY(0)'
                     : 'translateY(60px)',
                   pointerEvents: 'none',
                   visibility: isVisible ? 'visible' : 'hidden',
@@ -70,7 +68,7 @@ export function RevenueEngineSection() {
                       <p className="text-sm text-slate-600 mt-1">Track partner payouts</p>
                     </div>
 
-                    <div className="grid grid-cols-4 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                       <div className="bg-slate-50 rounded-lg p-3">
                         <div className="text-xs text-slate-600 font-semibold uppercase tracking-wide mb-1">Total</div>
                         <div className="text-xl font-bold text-slate-900">$847K</div>
@@ -145,13 +143,13 @@ export function RevenueEngineSection() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
               Maximize your partner revenue
             </h2>
 
             {/* Description */}
             <p className="text-lg text-slate-600 leading-relaxed max-w-xl">
-              Automate commission tracking, deal pipeline management, and revenue attribution. 
+              Automate commission tracking, deal pipeline management, and revenue attribution.
               Give your partners real-time visibility into their earnings while you maintain full control.
             </p>
 

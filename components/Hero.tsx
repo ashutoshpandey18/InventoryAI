@@ -21,26 +21,26 @@ export function Hero() {
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
-        
+
         {/* Dark Gradient Overlay with Vignette */}
         <div className="absolute inset-0 bg-gradient-to-b from-sky-900/40 via-sky-800/35 to-slate-900/30" />
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             background: 'radial-gradient(circle at center, transparent 0%, rgba(14, 116, 144, 0.15) 100%)',
           }}
         />
-        
+
         {/* Subtle blur for cinematic depth */}
         <div className="absolute inset-0 backdrop-blur-[0.5px]" />
       </div>
 
       {/* Hero Content - Center Aligned */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-60">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 pt-12 pb-16 lg:pb-60">
         <div className="flex flex-col items-center text-center">
-          
+
           {/* Main Headline */}
-          <h1 
+          <h1
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.5] tracking-tight text-white max-w-5xl"
             style={{ letterSpacing: '-0.02em' }}
           >
@@ -73,7 +73,7 @@ export function Hero() {
 
       {/* Dashboard Preview - Bottom of Hero, Overlapping Fold */}
       <div className="absolute bottom-[-45px] left-1/2 -translate-x-1/2 z-20 w-full max-w-4xl px-6 hidden lg:block">
-        <div 
+        <div
           className="dashboard-preview-container relative"
           style={{
             transform: 'perspective(1200px) rotateX(6deg) scale(1.03)',
@@ -84,7 +84,7 @@ export function Hero() {
           <div className="relative rounded-2xl overflow-hidden shadow-[0_32px_96px_-16px_rgba(0,0,0,0.7),0_16px_48px_-8px_rgba(0,0,0,0.5)] border-2 border-white/20 ring-1 ring-black/5">
             {/* Glass background */}
             <div className="absolute inset-0 bg-white/98 backdrop-blur-2xl" />
-            
+
             {/* Dashboard Content - Visible portion */}
             <div className="relative h-[400px] overflow-hidden">
               <div className="bg-white">
@@ -168,7 +168,7 @@ export function Hero() {
                     <div className="relative h-32 flex items-end gap-2">
                       {[65, 78, 82, 70, 88, 92, 85, 95, 90, 97, 94, 100].map((height, i) => (
                         <div key={i} className="flex-1 group cursor-pointer">
-                          <div 
+                          <div
                             className="w-full bg-gradient-to-t from-indigo-500 via-indigo-400 to-indigo-300 rounded-t-lg group-hover:from-indigo-600 group-hover:via-indigo-500 transition-all shadow-sm"
                             style={{ height: `${height}%` }}
                           />
@@ -209,8 +209,8 @@ export function Hero() {
                               <div className="flex items-center gap-2">
                                 <div className="text-sm font-bold text-slate-900">{referral.company}</div>
                                 <span className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                                  referral.tag === 'Hot' 
-                                    ? 'bg-red-100 text-red-700 border border-red-200' 
+                                  referral.tag === 'Hot'
+                                    ? 'bg-red-100 text-red-700 border border-red-200'
                                     : 'bg-amber-100 text-amber-700 border border-amber-200'
                                 }`}>
                                   {referral.tag}
@@ -220,7 +220,7 @@ export function Hero() {
                               {/* Probability bar */}
                               <div className="mt-1.5 flex items-center gap-2">
                                 <div className="flex-1 h-1 bg-slate-100 rounded-full overflow-hidden">
-                                  <div 
+                                  <div
                                     className="h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full"
                                     style={{ width: `${referral.probability}%` }}
                                   />
@@ -254,7 +254,7 @@ export function Hero() {
 
       {/* Mobile Dashboard Preview */}
       <div className="lg:hidden relative z-20 w-full max-w-2xl mx-auto px-6 -mb-24 mt-16">
-        <div 
+        <div
           className="relative rounded-xl overflow-hidden shadow-[0_32px_96px_-16px_rgba(0,0,0,0.5)] border border-white/10"
           style={{
             transform: 'perspective(800px) rotateX(4deg) scale(0.98)',
