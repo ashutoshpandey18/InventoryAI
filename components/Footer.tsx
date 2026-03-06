@@ -12,7 +12,7 @@ export function Footer() {
         >
           {/* 3-Column Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
-            {/* Column 1 — Logo + Social */
+            {/* Column 1 — Logo + Social */}
             <div>
               {/* Brand Name */}
               <h3 className="text-lg font-bold text-black mb-4">

@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  serverExternalPackages: ['@prisma/client', 'prisma', 'bcrypt'],
+  experimental: {
+    serverComponentsExternalPackages: ['@prisma/client', 'prisma', 'bcrypt'],
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Prevent webpack from bundling native server-only packages
