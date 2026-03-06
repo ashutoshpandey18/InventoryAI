@@ -1,4 +1,3 @@
-import { AnnouncementBar } from '@/components/AnnouncementBar'
 import { StickyNav } from '@/components/StickyNav'
 import { Hero } from '@/components/Hero'
 import { RevenueEngineSection } from '@/components/RevenueEngineSection'
@@ -71,36 +70,33 @@ export default function Home() {
         />
       </div>
 
-      {/* ─── Announcement Bar ─── */}
-      <AnnouncementBar />
-
       {/* ─── Page content ─── */}
       <div className="relative" style={{ zIndex: 1 }}>
         <StickyNav />
         <main className="min-h-screen">
           <Hero />
-          
+
           {/* Spacer for overlapping dashboard */}
           <div className="h-20" />
-          
+
           {/* Revenue Engine Section - Scroll-Triggered Dashboard */}
           <RevenueEngineSection />
-          
+
           {/* Deal Pipeline Section - Scroll-Triggered Kanban Dashboard */}
           <DealPipelineSection />
-          
+
           {/* Discovery Intelligence Section - Scroll-Triggered Partner Discovery */}
           <DiscoveryIntelligenceSection />
-          
+
           {/* Why InventoryAI - Problem vs Solution */}
           <WhyInventoryAI />
-          
+
           {/* How It Works - 4 Step Process */}
           <HowItWorks />
-          
+
           {/* Request Access Form */}
           <RequestAccessForm />
-          
+
         </main>
         <Footer />
       </div>
