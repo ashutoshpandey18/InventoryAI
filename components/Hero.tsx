@@ -195,7 +195,7 @@ export function Hero() {
                       {[
                         { company: 'Milk', contact: '2 days left', value: '45 units', probability: 20, tag: 'Urgent' },
                         { company: 'Bread', contact: '1 day left', value: '28 units', probability: 10, tag: 'Critical' },
-                        { company: 'Eggs', contact: 'Reorder soon', value: '52 units', probability: 35, tag: 'Low' },
+                        { company: 'Butter', contact: 'Reorder soon', value: '52 units', probability: 35, tag: 'Low' },
                         { company: 'Rice', contact: 'Low stock', value: '18 units', probability: 25, tag: 'Low' },
                       ].map((referral, idx) => (
                         <div

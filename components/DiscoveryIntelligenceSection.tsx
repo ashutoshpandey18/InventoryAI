@@ -158,9 +158,9 @@ export function DiscoveryIntelligenceSection() {
                       <div className="col-span-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white text-xs font-semibold">
-                            E
+                            B
                           </div>
-                          <div className="text-xs font-medium text-slate-900 truncate">Eggs</div>
+                          <div className="text-xs font-medium text-slate-900 truncate">Butter</div>
                         </div>
                       </div>
                       <div className="col-span-2 text-xs font-semibold text-slate-900">87</div>

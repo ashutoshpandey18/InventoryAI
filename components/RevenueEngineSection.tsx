@@ -105,7 +105,7 @@ export function RevenueEngineSection() {
                         {[
                           { name: 'Milk', amount: '12 units', status: 'Reorder', statusColor: 'emerald' },
                           { name: 'Bread', amount: '8 units', status: 'Reorder', statusColor: 'emerald' },
-                          { name: 'Eggs', amount: '15 units', status: 'Low', statusColor: 'blue' },
+                          { name: 'Butter', amount: '15 units', status: 'Low', statusColor: 'blue' },
                           { name: 'Rice', amount: '6 units', status: 'Critical', statusColor: 'amber' },
                         ].map((partner, idx) => (
                           <div key={idx} className="flex items-center justify-between py-2 px-3 rounded-lg bg-slate-50">

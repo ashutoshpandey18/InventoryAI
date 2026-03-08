@@ -150,7 +150,7 @@ export function DealPipelineSection() {
                           </div>
                           <div className="space-y-2">
                             <div className="bg-white rounded-lg p-3 border border-blue-200 shadow-sm">
-                              <div className="text-sm font-bold text-slate-900">Eggs</div>
+                              <div className="text-sm font-bold text-slate-900">Butter</div>
                               <div className="text-xs text-emerald-600 font-semibold mt-1">100 units</div>
                             </div>
                             <div className="bg-white rounded-lg p-3 border border-blue-200 shadow-sm">
