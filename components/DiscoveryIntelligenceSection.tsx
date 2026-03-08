@@ -56,13 +56,13 @@ export function DiscoveryIntelligenceSection() {
                 willChange: 'transform, opacity',
               }}
             >
-              {/* Partner Discovery Dashboard */}
+              {/* Demand Intelligence Dashboard */}
               <div className="bg-white rounded-2xl shadow-2xl shadow-black/10 p-6 space-y-5">
                 {/* Header */}
                 <div className="flex items-start justify-between">
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900">Partner Discovery</h3>
-                    <p className="text-xs text-slate-500 mt-0.5">AI-powered partner recommendations</p>
+                    <h3 className="text-lg font-semibold text-slate-900">Demand Intelligence</h3>
+                    <p className="text-xs text-slate-500 mt-0.5">AI-powered demand predictions</p>
                   </div>
                   <div className="flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 rounded-full">
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -74,15 +74,15 @@ export function DiscoveryIntelligenceSection() {
                 <div className="grid grid-cols-3 gap-3">
                   <div className="bg-slate-50 rounded-lg px-3 py-2.5">
                     <div className="text-xs text-slate-500 mb-0.5">Signals Today</div>
-                    <div className="text-lg font-bold text-slate-900">2,847</div>
+                    <div className="text-lg font-bold text-slate-900">147</div>
                   </div>
                   <div className="bg-slate-50 rounded-lg px-3 py-2.5">
-                    <div className="text-xs text-slate-500 mb-0.5">New Matches</div>
-                    <div className="text-lg font-bold text-slate-900">12</div>
+                    <div className="text-xs text-slate-500 mb-0.5">Stockouts Risk</div>
+                    <div className="text-lg font-bold text-slate-900">8</div>
                   </div>
                   <div className="bg-slate-50 rounded-lg px-3 py-2.5">
-                    <div className="text-xs text-slate-500 mb-0.5">Avg Fit Score</div>
-                    <div className="text-lg font-bold text-slate-900">87%</div>
+                    <div className="text-xs text-slate-500 mb-0.5">Fast Moving</div>
+                    <div className="text-lg font-bold text-slate-900">24</div>
                   </div>
                 </div>
 
@@ -90,11 +90,11 @@ export function DiscoveryIntelligenceSection() {
                 <div className="space-y-3">
                   {/* Table Header */}
                   <div className="grid grid-cols-12 gap-3 text-xs font-medium text-slate-500 px-2">
-                    <div className="col-span-3">Company</div>
-                    <div className="col-span-2">Signals</div>
-                    <div className="col-span-3">Fit</div>
-                    <div className="col-span-2">Type</div>
-                    <div className="col-span-2">Angle</div>
+                    <div className="col-span-3">Product</div>
+                    <div className="col-span-2">Sales</div>
+                    <div className="col-span-3">Demand</div>
+                    <div className="col-span-2">Category</div>
+                    <div className="col-span-2">Status</div>
                   </div>
 
                   {/* Table Rows */}
@@ -104,9 +104,9 @@ export function DiscoveryIntelligenceSection() {
                       <div className="col-span-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-xs font-semibold">
-                            A
+                            M
                           </div>
-                          <div className="text-xs font-medium text-slate-900 truncate">Acme Corp</div>
+                          <div className="text-xs font-medium text-slate-900 truncate">Milk</div>
                         </div>
                       </div>
                       <div className="col-span-2 text-xs font-semibold text-slate-900">142</div>
@@ -120,10 +120,10 @@ export function DiscoveryIntelligenceSection() {
                       </div>
                       <div className="col-span-2">
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">
-                          Tech
+                          Dairy
                         </span>
                       </div>
-                      <div className="col-span-2 text-xs text-slate-600 truncate">API</div>
+                      <div className="col-span-2 text-xs text-slate-600 truncate">Hot</div>
                     </div>
 
                     {/* Row 2 */}
@@ -131,9 +131,9 @@ export function DiscoveryIntelligenceSection() {
                       <div className="col-span-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-xs font-semibold">
-                            V
+                            B
                           </div>
-                          <div className="text-xs font-medium text-slate-900 truncate">Vertex Inc</div>
+                          <div className="text-xs font-medium text-slate-900 truncate">Bread</div>
                         </div>
                       </div>
                       <div className="col-span-2 text-xs font-semibold text-slate-900">98</div>
@@ -147,10 +147,10 @@ export function DiscoveryIntelligenceSection() {
                       </div>
                       <div className="col-span-2">
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-700">
-                          SaaS
+                          Bakery
                         </span>
                       </div>
-                      <div className="col-span-2 text-xs text-slate-600 truncate">Embed</div>
+                      <div className="col-span-2 text-xs text-slate-600 truncate">Hot</div>
                     </div>
 
                     {/* Row 3 */}
@@ -158,9 +158,9 @@ export function DiscoveryIntelligenceSection() {
                       <div className="col-span-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white text-xs font-semibold">
-                            Z
+                            E
                           </div>
-                          <div className="text-xs font-medium text-slate-900 truncate">Zenith Co</div>
+                          <div className="text-xs font-medium text-slate-900 truncate">Eggs</div>
                         </div>
                       </div>
                       <div className="col-span-2 text-xs font-semibold text-slate-900">87</div>
@@ -174,10 +174,10 @@ export function DiscoveryIntelligenceSection() {
                       </div>
                       <div className="col-span-2">
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
-                          Data
+                          Dairy
                         </span>
                       </div>
-                      <div className="col-span-2 text-xs text-slate-600 truncate">Plugin</div>
+                      <div className="col-span-2 text-xs text-slate-600 truncate">Warm</div>
                     </div>
 
                     {/* Row 4 */}
@@ -185,9 +185,9 @@ export function DiscoveryIntelligenceSection() {
                       <div className="col-span-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 rounded-full bg-gradient-to-br from-rose-500 to-rose-600 flex items-center justify-center text-white text-xs font-semibold">
-                            N
+                            R
                           </div>
-                          <div className="text-xs font-medium text-slate-900 truncate">Nova Labs</div>
+                          <div className="text-xs font-medium text-slate-900 truncate">Rice</div>
                         </div>
                       </div>
                       <div className="col-span-2 text-xs font-semibold text-slate-900">76</div>
@@ -201,10 +201,10 @@ export function DiscoveryIntelligenceSection() {
                       </div>
                       <div className="col-span-2">
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-700">
-                          AI
+                          Grain
                         </span>
                       </div>
-                      <div className="col-span-2 text-xs text-slate-600 truncate">SDK</div>
+                      <div className="col-span-2 text-xs text-slate-600 truncate">Warm</div>
                     </div>
                   </div>
                 </div>
@@ -217,20 +217,19 @@ export function DiscoveryIntelligenceSection() {
             {/* Eyebrow */}
             <div className="inline-block">
               <p className="text-xs font-semibold tracking-wider text-slate-500 uppercase">
-                DISCOVERY INTELLIGENCE
+                STOCK HEALTH
               </p>
             </div>
 
             {/* Heading */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-              Find partners your competitors haven't found yet
+              Detect Slow-Moving and Dead Stock Early
             </h2>
 
             {/* Description */}
             <p className="text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl">
-              Our AI continuously scans market signals, company activities, and integration patterns
-              to surface high-potential partners before they appear on anyone else's radar.
-              Stop relying on manual research and outdated databases.
+              Products that stop selling quietly drain working capital. InventoryAI continuously analyzes sales activity
+              and highlights items that are becoming stagnant so you can act before inventory piles up.
             </p>
 
             {/* Highlight Metric */}
@@ -249,23 +248,23 @@ export function DiscoveryIntelligenceSection() {
                 />
               </svg>
               <span className="text-sm font-semibold text-slate-700">
-                3x more qualified partners discovered
+                <span className="text-slate-900 font-bold">25%</span> reduction in dead stock write-offs
               </span>
             </div>
 
             {/* Feature Pills */}
             <div className="flex flex-wrap gap-3 pt-2">
               <div className="px-4 py-2 border border-slate-200 rounded-full text-sm font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors">
-                AI Discovery
+                Dead Stock Detection
               </div>
               <div className="px-4 py-2 border border-slate-200 rounded-full text-sm font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors">
-                Fit Scoring
+                Sales Trend Monitoring
               </div>
               <div className="px-4 py-2 border border-slate-200 rounded-full text-sm font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors">
-                Market Signals
+                Inventory Risk Signals
               </div>
               <div className="px-4 py-2 border border-slate-200 rounded-full text-sm font-medium text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-colors">
-                Partner Matching
+                Product Activity Tracking
               </div>
             </div>
           </div>
