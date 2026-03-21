@@ -8,11 +8,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const validatedData = registerSchema.parse(body);
-
     const { user, token } = await authService.register(validatedData);
-
     await setAuthCookie(token);
-
     return NextResponse.json({ user }, { status: 201 });
   } catch (error) {
     if (error instanceof ZodError) {
@@ -22,10 +19,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (
-      error instanceof Error &&
-      error.message.includes("already exists")
-    ) {
+    if (error instanceof Error && error.message.includes("already exists")) {
       return NextResponse.json(
         { error: error.message },
         { status: 409 }

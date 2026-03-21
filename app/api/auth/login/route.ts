@@ -1,31 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { authService } from "@/services/auth.service";
 import { loginSchema } from "@/validators/auth.validator";
+import { setAuthCookie } from "@/lib/auth";
 import { ZodError } from "zod";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const validatedData = loginSchema.parse(body);
-
     const { user, token } = await authService.login(validatedData);
 
-    // Set cookie directly on the response (required in Route Handlers)
-    const response = NextResponse.json({
-      success: true,
-      user,
-      message: 'Login successful'
-    });
+    await setAuthCookie(token);
 
-    response.cookies.set('auth_token', token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7, // 7 days
-      path: '/',
-    });
-
-    return response;
+    return NextResponse.json({ user });
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
@@ -34,17 +21,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (
-      error instanceof Error &&
-      error.message.includes("Invalid email or password")
-    ) {
+    if (error instanceof Error && error.message.includes("Invalid email or password")) {
       return NextResponse.json(
         { error: "Invalid email or password" },
         { status: 401 }
       );
     }
 
-    console.error('Login error:', error);
     return NextResponse.json(
       { error: "Login failed" },
       { status: 500 }

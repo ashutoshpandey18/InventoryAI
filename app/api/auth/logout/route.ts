@@ -5,24 +5,8 @@ export async function POST() {
   try {
     await clearAuthCookie();
 
-    const response = NextResponse.json({
-      message: "Logged out successfully"
-    });
-
-    // Ensure cookie is deleted with all possible settings
-    response.cookies.set('auth_token', '', {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'lax',
-      maxAge: 0,
-      path: '/',
-    });
-
-    return response;
+    return NextResponse.json({ success: true });
   } catch (error) {
-    return NextResponse.json(
-      { error: "Logout failed" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Logout failed" }, { status: 500 });
   }
 }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getUserIdFromRequest } from "./auth";
+import { getUserFromRequest } from "./auth";
 import { prisma } from "./prisma";
 import { config } from "./env";
 
@@ -14,7 +14,8 @@ export class AuthError extends Error {
 }
 
 export async function requireAuth(): Promise<string> {
-  const userId = await getUserIdFromRequest();
+  const user = await getUserFromRequest();
+  const userId = user?.id;
 
   if (!userId) {
     throw new AuthError("Unauthorized - Please login", 401);
@@ -67,12 +68,10 @@ export function handleAuthError(error: unknown): NextResponse {
     );
   }
 
-  // Log error in development only
   if (config.isDevelopment && error instanceof Error) {
     console.error("Unhandled error:", error.message);
   }
 
-  // Don't expose internal errors in production
   const message = config.isProduction
     ? "Internal server error"
     : error instanceof Error
