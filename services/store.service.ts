@@ -5,7 +5,6 @@ export class StoreService {
   async createStore(ownerId: string, data: CreateStoreInput) {
     const { name } = data;
 
-    // Generate a unique slug from the name
     const baseSlug = name
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
@@ -18,12 +17,24 @@ export class StoreService {
         slug,
         ownerId,
       },
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+        createdAt: true,
+      },
     });
   }
 
   async getStoresByOwner(ownerId: string) {
     return await prisma.store.findMany({
       where: { ownerId },
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+        createdAt: true,
+      },
       orderBy: { createdAt: "asc" },
     });
   }

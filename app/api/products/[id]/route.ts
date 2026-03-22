@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { productService } from "@/services/product.service";
-import { updateProductSchema } from "@/validators/product.validator";
+import {
+  productIdParamSchema,
+  updateProductSchema,
+} from "@/validators/product.validator";
 import {
   requireAuth,
   requireProductOwnership,
@@ -17,12 +20,20 @@ export async function GET(
   { params }: RouteContext
 ) {
   try {
+    const { id } = productIdParamSchema.parse(params);
     const userId = await requireAuth();
-    await requireProductOwnership(params.id, userId);
+    await requireProductOwnership(id, userId);
 
-    const product = await productService.getProductById(params.id);
-    return NextResponse.json(product);
+    const product = await productService.getProductById(id);
+    return NextResponse.json({ product });
   } catch (error) {
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        { error: "Validation error", details: error.errors },
+        { status: 400 }
+      );
+    }
+
     return handleAuthError(error);
   }
 }
@@ -32,14 +43,15 @@ export async function PATCH(
   { params }: RouteContext
 ) {
   try {
+    const { id } = productIdParamSchema.parse(params);
     const userId = await requireAuth();
-    await requireProductOwnership(params.id, userId);
+    await requireProductOwnership(id, userId);
 
     const body = await request.json();
     const validatedData = updateProductSchema.parse(body);
-    const product = await productService.updateProduct(params.id, validatedData);
+    const product = await productService.updateProduct(id, validatedData);
 
-    return NextResponse.json(product);
+    return NextResponse.json({ product });
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
@@ -57,12 +69,20 @@ export async function DELETE(
   { params }: RouteContext
 ) {
   try {
+    const { id } = productIdParamSchema.parse(params);
     const userId = await requireAuth();
-    await requireProductOwnership(params.id, userId);
+    await requireProductOwnership(id, userId);
 
-    await productService.deleteProduct(params.id);
+    await productService.deleteProduct(id);
     return NextResponse.json({ success: true });
   } catch (error) {
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        { error: "Validation error", details: error.errors },
+        { status: 400 }
+      );
+    }
+
     return handleAuthError(error);
   }
 }

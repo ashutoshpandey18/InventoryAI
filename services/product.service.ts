@@ -3,19 +3,14 @@ import type { CreateProductInput, UpdateProductInput } from "@/validators/produc
 
 export class ProductService {
   async createProduct(data: CreateProductInput) {
-    const { initialStock, reorderPoint, ...productData } = data;
-
-    const sku = productData.sku || `SKU-${Date.now()}`;
-
     return await prisma.$transaction(async (tx) => {
       const product = await tx.product.create({
         data: {
-          ...productData,
-          sku,
+          ...data,
           inventory: {
             create: {
-              quantity: initialStock,
-              reorderPoint,
+              quantity: 0,
+              reorderPoint: 0,
             },
           },
         },
