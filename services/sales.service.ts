@@ -59,14 +59,11 @@ export class SalesService {
       };
     });
 
-    const prediction = await predictionService.recalculatePrediction(
-      data.productId
-    );
+    await predictionService.recalculatePrediction(data.productId);
 
     return {
       sale: result.sale,
       inventory: result.updatedInventory,
-      prediction,
     };
   }
 

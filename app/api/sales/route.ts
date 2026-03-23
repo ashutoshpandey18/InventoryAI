@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { salesService, InsufficientStockError } from "@/services/sales.service";
-import { createSaleSchema } from "@/validators/sale.validator";
+import { createSaleSchema, saleStoreQuerySchema } from "@/validators/sale.validator";
 import {
   requireAuth,
   requireStoreOwnership,
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
 
     const result = await salesService.recordSale(validatedData);
 
-    return NextResponse.json(result, { status: 201 });
+    return NextResponse.json({ sale: result.sale, inventory: result.inventory }, { status: 201 });
   } catch (error) {
     if (error instanceof ZodError) {
       return NextResponse.json(
@@ -41,25 +41,21 @@ export async function GET(request: NextRequest) {
     const userId = await requireAuth();
 
     const { searchParams } = new URL(request.url);
-    const storeId = searchParams.get("storeId");
-    const productId = searchParams.get("productId");
+    const { storeId } = saleStoreQuerySchema.parse({
+      storeId: searchParams.get("storeId"),
+    });
 
-    if (storeId) {
-      await requireStoreOwnership(storeId, userId);
-      const sales = await salesService.getSalesByStore(storeId);
-      return NextResponse.json(sales);
-    }
-
-    if (productId) {
-      const sales = await salesService.getSalesByProduct(productId);
-      return NextResponse.json(sales);
-    }
-
-    return NextResponse.json(
-      { error: "Either storeId or productId query parameter is required" },
-      { status: 400 }
-    );
+    await requireStoreOwnership(storeId, userId);
+    const sales = await salesService.getSalesByStore(storeId);
+    return NextResponse.json({ sales });
   } catch (error) {
+    if (error instanceof ZodError) {
+      return NextResponse.json(
+        { error: "Validation error", details: error.errors },
+        { status: 400 }
+      );
+    }
+
     return handleAuthError(error);
   }
 }
