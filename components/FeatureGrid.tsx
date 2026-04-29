@@ -2,12 +2,22 @@
 
 import { TrendingUp, Clock, Archive, DollarSign, MessageSquare, Mic } from 'lucide-react'
 
+/**
+ * Feature configuration interface for FeatureGrid component
+ * @interface Feature
+ * @property {LucideIcon} icon - The icon component from lucide-react
+ * @property {string} title - Feature title displayed to users
+ * @property {string} description - Detailed description of the feature
+ */
 interface Feature {
   icon: typeof TrendingUp
   title: string
   description: string
 }
 
+/**
+ * Core features of the InventoryAI platform
+ */
 const features: Feature[] = [
   {
     icon: TrendingUp,
@@ -41,13 +51,25 @@ const features: Feature[] = [
   },
 ]
 
+/**
+ * FeatureGrid Component
+ *
+ * Displays the core features of InventoryAI in a responsive grid layout.
+ * Includes predictive analytics, forecasting, and AI-powered recommendations.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <FeatureGrid />
+ * ```
+ */
 export function FeatureGrid() {
   return (
-    <section id="features" className="py-16">
+    <section id="features" className="py-16" aria-labelledby="features-heading">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="mb-14">
           <p className="text-sm font-medium text-indigo-600 mb-3">Features</p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-4 max-w-lg">
+          <h2 id="features-heading" className="text-3xl lg:text-4xl font-semibold text-slate-900 mb-4 max-w-lg">
             How it works
           </h2>
           <p className="text-base text-slate-500 max-w-xl">
