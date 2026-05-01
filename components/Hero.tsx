@@ -3,13 +3,33 @@
 import { useEffect, useRef } from 'react'
 import { heroPreviewItems } from '@/lib/mock-data'
 
+/**
+ * Hero Component - Landing page hero section with video background
+ * 
+ * Features:
+ * - Full-screen video background with gradient overlay
+ * - Center-aligned headline and CTA buttons
+ * - Responsive dashboard preview with 3D transform effect
+ * - Auto-playing background video with fallback
+ * 
+ * @component
+ * @example
+ * ```tsx
+ * <Hero />
+ * ```
+ * 
+ * @returns {JSX.Element} Hero section with video background and dashboard preview
+ */
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center bg-slate-950">
+    <section 
+      className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center bg-slate-950"
+      aria-labelledby="hero-heading"
+    >
       {/* Background Video Layer */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <video
           ref={videoRef}
           autoPlay
@@ -18,6 +38,7 @@ export function Hero() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
           style={{ objectPosition: 'center' }}
+          aria-label="Background video showcasing inventory management"
         >
           <source src="/video.mp4" type="video/mp4" />
         </video>
@@ -41,6 +62,7 @@ export function Hero() {
 
           {/* Main Headline */}
           <h1
+            id="hero-heading"
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.5] tracking-tight text-white max-w-5xl"
             style={{ letterSpacing: '-0.02em' }}
           >
