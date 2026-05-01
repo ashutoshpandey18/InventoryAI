@@ -2,19 +2,63 @@
 
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
+/**
+ * Data point for the sales velocity chart
+ * @interface ChartDataPoint
+ * @property {string} month - Month label (e.g., "Jan", "Feb")
+ * @property {number} sales - Actual sales value for the month
+ * @property {number} forecast - Forecasted sales value for the month
+ */
 interface ChartDataPoint {
   month: string
   sales: number
   forecast: number
 }
 
+/**
+ * Props for SalesVelocityChart component
+ * @interface SalesVelocityChartProps
+ * @property {ChartDataPoint[]} data - Array of monthly sales and forecast data
+ */
 interface SalesVelocityChartProps {
   data: ChartDataPoint[]
 }
 
+/**
+ * SalesVelocityChart Component
+ * 
+ * Renders a dual-area chart displaying actual sales vs forecasted sales over time.
+ * Features smooth animations, responsive design, and custom tooltips.
+ * 
+ * Visual Design:
+ * - Actual sales: Solid indigo line with gradient fill
+ * - Forecast: Dashed gray line with subtle fill
+ * - Auto-formatted Y-axis with K suffix for thousands
+ * - Interactive tooltips on hover
+ * 
+ * @component
+ * @param {SalesVelocityChartProps} props - Component props
+ * 
+ * @example
+ * ```tsx
+ * const salesData = [
+ *   { month: 'Jan', sales: 4000, forecast: 3800 },
+ *   { month: 'Feb', sales: 4500, forecast: 4300 },
+ *   { month: 'Mar', sales: 5200, forecast: 4900 }
+ * ];
+ * 
+ * <SalesVelocityChart data={salesData} />
+ * ```
+ * 
+ * @returns {JSX.Element} Rendered chart with sales velocity visualization
+ */
 export function SalesVelocityChart({ data }: SalesVelocityChartProps) {
   return (
-    <div className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)] p-6">
+    <div 
+      className="bg-white rounded-xl border border-slate-100/80 shadow-[0_4px_24px_-6px_rgba(0,0,0,0.05),0_1px_6px_-2px_rgba(0,0,0,0.03)] p-6"
+      role="region"
+      aria-label="Sales velocity chart"
+    >
       <div className="mb-6">
         <h3 className="text-base font-semibold text-slate-900 mb-1">Sales Velocity</h3>
         <p className="text-sm text-slate-400">6-month trend analysis</p>
