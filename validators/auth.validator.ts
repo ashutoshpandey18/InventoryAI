@@ -1,21 +1,10 @@
 import { z } from "zod";
 
 /**
- * Authentication Validators
+ * Validation schema for user registration
  * 
- * Zod schemas for validating user authentication inputs.
- * Provides type-safe validation with detailed error messages.
- * 
- * @module validators/auth
- */
-
-/**
- * User registration validation schema
- * 
- * Validates new user registration data with strict requirements:
- * - Name: 2-100 characters
- * - Email: Valid email format, trimmed and lowercased
- * - Password: Min 8 chars, must contain uppercase, lowercase, and number
+ * Enforces strong password requirements and email format validation.
+ * All emails are normalized to lowercase and trimmed.
  * 
  * @example
  * ```typescript
@@ -30,61 +19,55 @@ export const registerSchema = z.object({
   name: z
     .string()
     .min(2, "Name must be at least 2 characters")
-    .max(100, "Name must not exceed 100 characters")
+    .max(100, "Name cannot exceed 100 characters")
     .regex(/^[a-zA-Z\s'-]+$/, "Name can only contain letters, spaces, hyphens, and apostrophes"),
   email: z
     .string()
-    .email("Invalid email address. Please enter a valid email (e.g., user@example.com)")
+    .email("Please enter a valid email address")
     .trim()
     .toLowerCase()
-    .max(255, "Email must not exceed 255 characters"),
+    .max(255, "Email cannot exceed 255 characters"),
   password: z
     .string()
-    .min(8, "Password must be at least 8 characters long")
-    .max(128, "Password must not exceed 128 characters")
+    .min(8, "Password must be at least 8 characters")
+    .max(128, "Password cannot exceed 128 characters")
     .regex(
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
       "Password must contain at least one uppercase letter, one lowercase letter, and one number"
-    )
-    .regex(
-      /^(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/,
-      "Password must contain at least one special character (!@#$%^&* etc.)"
     ),
 });
 
 /**
- * User login validation schema
+ * Validation schema for user login
  * 
- * Validates user login credentials with basic requirements.
- * Email is normalized (trimmed and lowercased).
+ * Validates email format and ensures password is provided.
+ * Email is normalized for consistent lookup.
  * 
  * @example
  * ```typescript
  * const result = loginSchema.safeParse({
  *   email: 'john@example.com',
- *   password: 'myPassword'
+ *   password: 'SecurePass123'
  * });
  * ```
  */
 export const loginSchema = z.object({
   email: z
     .string()
-    .email("Invalid email address. Please enter a valid email")
+    .email("Please enter a valid email address")
     .trim()
-    .toLowerCase()
-    .max(255, "Email must not exceed 255 characters"),
-  password: z
-    .string()
-    .min(1, "Password is required")
-    .max(128, "Password must not exceed 128 characters"),
+    .toLowerCase(),
+  password: z.string().min(1, "Password is required"),
 });
 
 /**
- * Type-safe registration input derived from registerSchema
+ * TypeScript type inferred from registerSchema
+ * @typedef {Object} RegisterInput
  */
 export type RegisterInput = z.infer<typeof registerSchema>;
 
 /**
- * Type-safe login input derived from loginSchema
+ * TypeScript type inferred from loginSchema
+ * @typedef {Object} LoginInput
  */
 export type LoginInput = z.infer<typeof loginSchema>;
